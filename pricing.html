@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الأسعار | كرسي</title>
-  <meta name="description" content="أسعار بسيطة وشفافة لكل حجم صالون — Starter مجاني، Pro بـ 20 دينار، Growth بـ 35 دينار شهرياً.">
+  <title>الأسعار — كرسي</title>
+  <meta name="description" content="أسعار بسيطة وشفافة لكل حجم صالون — Starter مجاني، Pro بـ 25 دينار، Growth بـ 35 دينار شهرياً.">
+  <meta property="og:title" content="الأسعار — كرسي">
+  <meta property="og:description" content="أول نظام حجز واتساب لصالونات الحلاقة في الأردن">
+  <meta property="og:url" content="https://kursi.now/pricing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kursi.now/pricing.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,19 +22,29 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="logo">
-          <span class="logo-ar">كرسي</span>
-          <span class="logo-en">Kursi</span>
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text">
+            <span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span>
+          </span>
         </a>
         <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
           <ul class="nav-list">
-            <li><a href="index.html"   class="nav-link">الرئيسية</a></li>
-            <li><a href="pricing.html" class="nav-link">الأسعار</a></li>
-            <li><a href="about.html"   class="nav-link">من نحن</a></li>
-            <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            <li><a href="index.html" class="nav-link">
+              <span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span>
+            </a></li>
+            <li><a href="pricing.html" class="nav-link">
+              <span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span>
+            </a></li>
+            <li><a href="about.html" class="nav-link">
+              <span data-lang="ar">من نحن</span><span data-lang="en">About</span>
+            </a></li>
+            <li><a href="contact.html" class="nav-link">
+              <span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span>
+            </a></li>
           </ul>
         </nav>
         <div class="header-actions">
-          <span class="lang-badge">AR</span>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
           <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -40,9 +58,17 @@
     <!-- ===== PAGE HERO ===== -->
     <section class="page-hero">
       <div class="container">
-        <span class="badge">الأسعار</span>
-        <h1>أسعار بسيطة وشفافة</h1>
-        <p>ابدأ مجاناً — ارتقِ عندما تنمو. بدون عقود طويلة أو رسوم مخفية.</p>
+        <span class="badge">
+          <span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span>
+        </span>
+        <h1>
+          <span data-lang="ar">أسعار بسيطة وشفافة</span>
+          <span data-lang="en">Simple &amp; Transparent Pricing</span>
+        </h1>
+        <p>
+          <span data-lang="ar">ابدأ مجاناً — ارتقِ عندما تنمو. بدون عقود طويلة أو رسوم مخفية.</span>
+          <span data-lang="en">Start free — upgrade when you grow. No long contracts or hidden fees.</span>
+        </p>
       </div>
     </section>
 
@@ -50,165 +76,211 @@
     <section class="section" style="padding-bottom: 0;">
       <div class="container">
         <div class="annual-callout">
-          💡 <strong>ادفع سنوياً ووفّر شهرين!</strong>
-          Pro: <strong>200 دينار / سنة</strong> (بدلاً من 240) — Growth: <strong>350 دينار / سنة</strong> (بدلاً من 420)
+          💡 <strong>
+            <span data-lang="ar">ادفع سنوياً ووفّر شهرين!</span>
+            <span data-lang="en">Pay annually and save 2 months!</span>
+          </strong>
+          <span data-lang="ar">Pro: <strong>250 دينار / سنة</strong> (بدلاً من 300) — Growth: <strong>350 دينار / سنة</strong> (بدلاً من 420)</span>
+          <span data-lang="en">Pro: <strong>250 JOD / year</strong> (instead of 300) — Growth: <strong>350 JOD / year</strong> (instead of 420)</span>
         </div>
       </div>
     </section>
 
     <!-- ===== PRICING CARDS ===== -->
-    <section class="section">
+    <section class="section animate-up">
       <div class="container">
         <div class="pricing-grid">
 
           <!-- Starter -->
           <div class="pricing-card">
             <h3>Starter</h3>
-            <p class="pricing-name-ar">البداية</p>
-            <div class="pricing-price">مجاني</div>
-            <p class="pricing-period">دائماً مجاني — ابدأ بدون مخاطرة</p>
+            <p class="pricing-name-ar">
+              <span data-lang="ar">البداية</span><span data-lang="en">The Beginning</span>
+            </p>
+            <div class="pricing-price">
+              <span data-lang="ar">مجاني</span><span data-lang="en">Free</span>
+            </div>
+            <p class="pricing-period">
+              <span data-lang="ar">دائماً مجاني — ابدأ بدون مخاطرة</span>
+              <span data-lang="en">Always free — start risk-free</span>
+            </p>
             <ul class="pricing-features">
-              <li><span class="check">✓</span> بوت واتساب (50 حجز/شهر)</li>
-              <li><span class="check">✓</span> تقويم مواعيد بسيط</li>
-              <li><span class="check">✓</span> ظهور في تطبيق العملاء</li>
-              <li><span class="check">✓</span> حلاق واحد فقط</li>
-              <li><span class="cross">✗</span> بدون تذكيرات تلقائية</li>
-              <li><span class="cross">✗</span> بدون تقارير إيرادات</li>
-              <li><span class="cross">✗</span> بدون إدارة فريق</li>
-              <li><span class="cross">✗</span> بدون دعم فني مباشر</li>
+              <li><span class="check">✓</span> <span data-lang="ar">بوت واتساب (50 حجز/شهر)</span><span data-lang="en">WhatsApp bot (50 bookings/month)</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">تقويم مواعيد بسيط</span><span data-lang="en">Simple appointment calendar</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">ظهور في تطبيق العملاء</span><span data-lang="en">Listed in client discovery app</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">حلاق واحد فقط</span><span data-lang="en">One barber only</span></li>
+              <li><span class="cross">✗</span> <span data-lang="ar">بدون تذكيرات تلقائية</span><span data-lang="en">No automatic reminders</span></li>
+              <li><span class="cross">✗</span> <span data-lang="ar">بدون تقارير إيرادات</span><span data-lang="en">No revenue reports</span></li>
+              <li><span class="cross">✗</span> <span data-lang="ar">بدون إدارة فريق</span><span data-lang="en">No team management</span></li>
+              <li><span class="cross">✗</span> <span data-lang="ar">بدون دعم فني مباشر</span><span data-lang="en">No direct technical support</span></li>
             </ul>
             <a href="https://wa.me/962795070844" class="btn btn-outline pricing-cta" target="_blank" rel="noopener">
-              ابدأ مجاناً
+              <span data-lang="ar">ابدأ مجاناً</span><span data-lang="en">Start Free</span>
             </a>
           </div>
 
           <!-- Pro (Featured) -->
           <div class="pricing-card featured">
-            <span class="pricing-badge">⭐ الأكثر شيوعاً</span>
+            <span class="pricing-badge">
+              ⭐ <span data-lang="ar">الأكثر طلباً</span><span data-lang="en">Most Popular</span>
+            </span>
             <h3>Pro</h3>
-            <p class="pricing-name-ar">الاحترافي</p>
-            <div class="pricing-price">20 <span>دينار</span></div>
-            <p class="pricing-period">شهرياً — أو 200 دينار سنوياً</p>
+            <p class="pricing-name-ar">
+              <span data-lang="ar">الاحترافي</span><span data-lang="en">Professional</span>
+            </p>
+            <div class="pricing-price">25 <span><span data-lang="ar">دينار</span><span data-lang="en">JOD</span></span></div>
+            <p class="pricing-period">
+              <span data-lang="ar">شهرياً — أو 250 دينار سنوياً</span>
+              <span data-lang="en">monthly — or 250 JOD annually</span>
+            </p>
             <ul class="pricing-features">
-              <li><span class="check">✓</span> بوت واتساب غير محدود</li>
-              <li><span class="check">✓</span> تذكيرات تلقائية للعملاء</li>
-              <li><span class="check">✓</span> إدارة حتى 5 حلاقين</li>
-              <li><span class="check">✓</span> تقارير الإيرادات والمواعيد</li>
-              <li><span class="check">✓</span> سجل العملاء والملاحظات</li>
-              <li><span class="check">✓</span> تتبع مدفوعات CliQ</li>
-              <li><span class="check">✓</span> نظام طابور الانتظار</li>
-              <li><span class="check">✓</span> دعم فني عبر واتساب</li>
+              <li><span class="check">✓</span> <span data-lang="ar">بوت واتساب غير محدود</span><span data-lang="en">Unlimited WhatsApp bot</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">تذكيرات تلقائية للعملاء</span><span data-lang="en">Automatic client reminders</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">إدارة حتى 5 حلاقين</span><span data-lang="en">Manage up to 5 barbers</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">تقارير الإيرادات والمواعيد</span><span data-lang="en">Revenue &amp; appointment reports</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">سجل العملاء والملاحظات</span><span data-lang="en">Client records &amp; notes</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">تتبع مدفوعات CliQ</span><span data-lang="en">CliQ payment tracking</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">نظام طابور الانتظار</span><span data-lang="en">Waiting queue system</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">دعم فني عبر واتساب</span><span data-lang="en">WhatsApp technical support</span></li>
             </ul>
             <a href="https://wa.me/962795070844" class="btn btn-primary pricing-cta" target="_blank" rel="noopener">
-              ابدأ الآن — Pro
+              <span data-lang="ar">ابدأ الآن — Pro</span><span data-lang="en">Start Now — Pro</span>
             </a>
           </div>
 
           <!-- Growth -->
           <div class="pricing-card">
             <h3>Growth</h3>
-            <p class="pricing-name-ar">النمو</p>
-            <div class="pricing-price">35 <span>دينار</span></div>
-            <p class="pricing-period">شهرياً — أو 350 دينار سنوياً</p>
+            <p class="pricing-name-ar">
+              <span data-lang="ar">النمو</span><span data-lang="en">Scale</span>
+            </p>
+            <div class="pricing-price">35 <span><span data-lang="ar">دينار</span><span data-lang="en">JOD</span></span></div>
+            <p class="pricing-period">
+              <span data-lang="ar">شهرياً — أو 350 دينار سنوياً</span>
+              <span data-lang="en">monthly — or 350 JOD annually</span>
+            </p>
             <ul class="pricing-features">
-              <li><span class="check">✓</span> كل مميزات Pro</li>
-              <li><span class="check">✓</span> عدد حلاقين غير محدود</li>
-              <li><span class="check">✓</span> برنامج ولاء (نقاط ومكافآت)</li>
-              <li><span class="check">✓</span> حملات تسويقية عبر واتساب</li>
-              <li><span class="check">✓</span> رسائل إعادة تفاعل تلقائية</li>
-              <li><span class="check">✓</span> إدارة فروع متعددة (حتى 3)</li>
-              <li><span class="check">✓</span> تقارير متقدمة ومخصصة</li>
-              <li><span class="check">✓</span> مدير حساب مخصص</li>
+              <li><span class="check">✓</span> <span data-lang="ar">كل مميزات Pro</span><span data-lang="en">All Pro features</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">عدد حلاقين غير محدود</span><span data-lang="en">Unlimited barbers</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">برنامج ولاء (نقاط ومكافآت)</span><span data-lang="en">Loyalty program (points &amp; rewards)</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">حملات تسويقية عبر واتساب</span><span data-lang="en">WhatsApp marketing campaigns</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">رسائل إعادة تفاعل تلقائية</span><span data-lang="en">Automated re-engagement messages</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">إدارة فروع متعددة (حتى 3)</span><span data-lang="en">Multi-branch management (up to 3)</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">تقارير متقدمة ومخصصة</span><span data-lang="en">Advanced custom reports</span></li>
+              <li><span class="check">✓</span> <span data-lang="ar">مدير حساب مخصص</span><span data-lang="en">Dedicated account manager</span></li>
             </ul>
             <a href="https://wa.me/962795070844" class="btn btn-outline pricing-cta" target="_blank" rel="noopener">
-              تواصل معنا — Growth
+              <span data-lang="ar">تواصل معنا — Growth</span><span data-lang="en">Contact Us — Growth</span>
             </a>
           </div>
 
         </div>
 
-        <!-- Comparison note -->
         <p class="text-center text-muted mt-4" style="font-size: 0.9rem;">
-          جميع الأسعار بالدينار الأردني (JOD) وتشمل ضريبة القيمة المضافة.
-          يمكن الإلغاء في أي وقت بدون رسوم.
+          <span data-lang="ar">جميع الأسعار بالدينار الأردني (JOD) وتشمل ضريبة القيمة المضافة. يمكن الإلغاء في أي وقت بدون رسوم.</span>
+          <span data-lang="en">All prices in Jordanian Dinar (JOD) and include VAT. Cancel anytime, no fees.</span>
         </p>
       </div>
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section class="section section-alt">
+    <section class="section section-alt animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">الأسئلة الشائعة</span>
-          <h2>أسئلة تسمعها كثيراً</h2>
+          <span class="badge">
+            <span data-lang="ar">الأسئلة الشائعة</span><span data-lang="en">FAQ</span>
+          </span>
+          <h2>
+            <span data-lang="ar">أسئلة تسمعها كثيراً</span>
+            <span data-lang="en">Questions We Hear Often</span>
+          </h2>
         </div>
         <div class="faq-list">
+
           <div class="faq-item">
             <button class="faq-question">
-              هل أحتاج تحميل تطبيق؟
+              <span data-lang="ar">هل أحتاج تحميل تطبيق؟</span>
+              <span data-lang="en">Do I need to download an app?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                لا — عملاؤك يحجزون مواعيدهم مباشرة من واتساب الذي يستخدمونه يومياً بالفعل. لا حاجة لتحميل أي تطبيق أو إنشاء حساب جديد.
+                <span data-lang="ar">لا — عملاؤك يحجزون مواعيدهم مباشرة من واتساب الذي يستخدمونه يومياً بالفعل. لا حاجة لتحميل أي تطبيق أو إنشاء حساب جديد.</span>
+                <span data-lang="en">No — clients book directly from WhatsApp they already use daily. No app download or new account needed.</span>
               </div>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question">
-              هل يمكنني إلغاء الاشتراك؟
+              <span data-lang="ar">هل يمكنني إلغاء الاشتراك؟</span>
+              <span data-lang="en">Can I cancel my subscription?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                نعم — يمكنك الإلغاء في أي وقت بدون رسوم إلغاء أو عقوبات. بياناتك تبقى محفوظة لمدة 30 يوماً بعد الإلغاء.
+                <span data-lang="ar">نعم — يمكنك الإلغاء في أي وقت بدون رسوم إلغاء أو عقوبات. بياناتك تبقى محفوظة لمدة 30 يوماً بعد الإلغاء.</span>
+                <span data-lang="en">Yes — cancel anytime with no cancellation fees. Your data stays saved for 30 days after cancellation.</span>
               </div>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question">
-              كم يستغرق التفعيل؟
+              <span data-lang="ar">كم يستغرق التفعيل؟</span>
+              <span data-lang="en">How long does activation take?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                أقل من 10 دقائق. فريقنا يساعدك على الإعداد عبر واتساب — تضيف اسم صالونك وخدماتك وأوقات العمل، وتبدأ مباشرة.
+                <span data-lang="ar">أقل من 10 دقائق. فريقنا يساعدك على الإعداد عبر واتساب — تضيف اسم صالونك وخدماتك وأوقات العمل، وتبدأ مباشرة.</span>
+                <span data-lang="en">Less than 10 minutes. Our team helps you set up via WhatsApp — add your salon name, services, and hours, then you're live.</span>
               </div>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question">
-              هل بياناتي آمنة؟
+              <span data-lang="ar">هل بياناتي آمنة؟</span>
+              <span data-lang="en">Is my data secure?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                نعم — نستخدم تشفير SSL وقواعد بيانات محمية في خوادم أوروبية. بياناتك لن تُباع لأي طرف ثالث أبداً.
+                <span data-lang="ar">نعم — نستخدم تشفير SSL وقواعد بيانات محمية في خوادم أوروبية. بياناتك لن تُباع لأي طرف ثالث أبداً.</span>
+                <span data-lang="en">Yes — we use SSL encryption and protected databases on European servers. Your data will never be sold to any third party.</span>
               </div>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question">
-              هل يعمل مع رقم واتساب موجود عندي؟
+              <span data-lang="ar">هل يعمل مع رقم واتساب موجود عندي؟</span>
+              <span data-lang="en">Does it work with my existing WhatsApp number?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                نعم — يمكننا ربط البوت برقم واتساب Business موجود لديك، أو نساعدك في إنشاء رقم جديد مخصص لصالونك.
+                <span data-lang="ar">نعم — يمكننا ربط البوت برقم واتساب Business موجود لديك، أو نساعدك في إنشاء رقم جديد مخصص لصالونك.</span>
+                <span data-lang="en">Yes — we can link the bot to your existing WhatsApp Business number, or help you set up a new dedicated number.</span>
               </div>
             </div>
           </div>
+
           <div class="faq-item">
             <button class="faq-question">
-              ماذا يحدث إذا تجاوزت 50 حجز في الشهر على Starter؟
+              <span data-lang="ar">ماذا يحدث إذا تجاوزت 50 حجز في الشهر على Starter؟</span>
+              <span data-lang="en">What happens if I exceed 50 bookings on Starter?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                سنرسل لك إشعاراً عند الاقتراب من الحد. يمكنك ترقية خطتك بضغطة واحدة — مع الحفاظ على جميع بياناتك.
+                <span data-lang="ar">سنرسل لك إشعاراً عند الاقتراب من الحد. يمكنك ترقية خطتك بضغطة واحدة — مع الحفاظ على جميع بياناتك.</span>
+                <span data-lang="en">We'll notify you when approaching the limit. Upgrade your plan with one click — all your data is preserved.</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -216,15 +288,25 @@
     <!-- ===== CTA ===== -->
     <section class="cta-section">
       <div class="container">
-        <span class="badge">ابدأ الآن</span>
-        <h2>جرّب كرسي مجاناً اليوم</h2>
-        <p>تواصل معنا على واتساب وسنعدّ صالونك خلال 10 دقائق</p>
+        <span class="badge">
+          <span data-lang="ar">ابدأ الآن</span><span data-lang="en">Get Started</span>
+        </span>
+        <h2>
+          <span data-lang="ar">جرّب كرسي مجاناً اليوم</span>
+          <span data-lang="en">Try Kursi Free Today</span>
+        </h2>
+        <p>
+          <span data-lang="ar">تواصل معنا على واتساب وسنعدّ صالونك خلال 10 دقائق</span>
+          <span data-lang="en">Contact us on WhatsApp and we'll set up your salon in 10 minutes</span>
+        </p>
         <div class="cta-btns">
           <a href="https://wa.me/962795070844" class="btn btn-cta btn-lg" target="_blank" rel="noopener">
-            💬 ابدأ التجربة المجانية
+            <span data-lang="ar">💬 ابدأ التجربة المجانية</span>
+            <span data-lang="en">💬 Start Free Trial</span>
           </a>
           <a href="contact.html" class="btn btn-ghost btn-lg">
-            تواصل مع الفريق
+            <span data-lang="ar">تواصل مع الفريق</span>
+            <span data-lang="en">Contact the Team</span>
           </a>
         </div>
       </div>
@@ -237,30 +319,33 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo">
-            <span class="logo-ar">كرسي</span>
-            <span class="logo-en">Kursi</span>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
           </a>
-          <p>نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</p>
+          <p>
+            <span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span>
+            <span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span>
+          </p>
         </div>
         <div>
-          <h4>روابط سريعة</h4>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
           <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="pricing.html">الأسعار</a></li>
-            <li><a href="privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
           </ul>
         </div>
         <div>
-          <h4>تواصل معنا</h4>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
           <ul>
             <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
             <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
           </ul>
         </div>
         <div>
-          <h4>تابعنا</h4>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
           <div class="social-links">
             <a href="#" class="social-link">📸 Instagram</a>
             <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -268,12 +353,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 كرسي — جميع الحقوق محفوظة</p>
-        <p>صنع بـ ❤️ في عمّان، الأردن</p>
+        <p><span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span><span data-lang="en">© 2026 Kursi — All rights reserved</span></p>
+        <p><span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span><span data-lang="en">Made with ❤️ in Amman, Jordan</span></p>
       </div>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
   <script src="js/main.js"></script>
 </body>
 </html>

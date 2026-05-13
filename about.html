@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>من نحن | كرسي</title>
+  <title>من نحن — كرسي</title>
   <meta name="description" content="كرسي منصة أردنية مصممة خصيصاً لصالونات الحلاقة في الأردن والعالم العربي. تعرف على قصتنا ومهمتنا.">
+  <meta property="og:title" content="من نحن — كرسي">
+  <meta property="og:description" content="أول نظام حجز واتساب لصالونات الحلاقة في الأردن">
+  <meta property="og:url" content="https://kursi.now/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kursi.now/about.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,19 +22,19 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="logo">
-          <span class="logo-ar">كرسي</span>
-          <span class="logo-en">Kursi</span>
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
         </a>
         <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
           <ul class="nav-list">
-            <li><a href="index.html"   class="nav-link">الرئيسية</a></li>
-            <li><a href="pricing.html" class="nav-link">الأسعار</a></li>
-            <li><a href="about.html"   class="nav-link">من نحن</a></li>
-            <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            <li><a href="index.html" class="nav-link"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html" class="nav-link"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="about.html" class="nav-link"><span data-lang="ar">من نحن</span><span data-lang="en">About</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span></a></li>
           </ul>
         </nav>
         <div class="header-actions">
-          <span class="lang-badge">AR</span>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
           <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -40,94 +48,111 @@
     <!-- ===== ABOUT HERO ===== -->
     <section class="about-hero">
       <div class="container">
-        <span class="badge">من نحن</span>
-        <h1>نحن كرسي</h1>
-        <p>منصة أردنية مصممة خصيصاً لصالونات الحلاقة في الأردن والعالم العربي. نؤمن أن كل صالون يستحق أدوات احترافية لإدارة عمله بكفاءة — بدون تعقيد وبدون تكاليف مرتفعة.</p>
+        <span class="badge">
+          <span data-lang="ar">من نحن</span><span data-lang="en">About Us</span>
+        </span>
+        <h1>
+          <span data-lang="ar">نحن كرسي</span><span data-lang="en">We Are Kursi</span>
+        </h1>
+        <p>
+          <span data-lang="ar">منصة أردنية مصممة خصيصاً لصالونات الحلاقة في الأردن والعالم العربي. نؤمن أن كل صالون يستحق أدوات احترافية لإدارة عمله بكفاءة — بدون تعقيد وبدون تكاليف مرتفعة.</span>
+          <span data-lang="en">A Jordanian platform designed specifically for barbershops in Jordan and the Arab world. We believe every salon deserves professional tools to run efficiently — without complexity or high costs.</span>
+        </p>
       </div>
     </section>
 
     <!-- ===== STORY ===== -->
-    <section class="section">
+    <section class="section animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">قصتنا</span>
-          <h2>لماذا أنشأنا كرسي؟</h2>
+          <span class="badge"><span data-lang="ar">قصتنا</span><span data-lang="en">Our Story</span></span>
+          <h2><span data-lang="ar">لماذا أنشأنا كرسي؟</span><span data-lang="en">Why We Built Kursi</span></h2>
         </div>
         <div class="story-block">
           <p>
-            وُلدت فكرة كرسي من ملاحظة بسيطة: أصحاب صالونات الحلاقة في الأردن يقضون ساعات طويلة يردون على رسائل الحجز يدوياً، يتذكرون المواعيد، ويتابعون الإيرادات على دفاتر ورقية — بينما الأدوات التقنية الموجودة إما باهظة الثمن أو مصممة لأسواق مختلفة.
+            <span data-lang="ar">وُلدت فكرة كرسي من ملاحظة بسيطة: أصحاب صالونات الحلاقة في الأردن يقضون ساعات طويلة يردون على رسائل الحجز يدوياً، يتذكرون المواعيد، ويتابعون الإيرادات على دفاتر ورقية — بينما الأدوات التقنية الموجودة إما باهظة الثمن أو مصممة لأسواق مختلفة.</span>
+            <span data-lang="en">The idea for Kursi was born from a simple observation: barbershop owners in Jordan spend hours manually responding to booking messages, tracking appointments, and following up revenue in paper notebooks — while the available tech tools are either too expensive or designed for different markets.</span>
           </p>
           <p>
-            قررنا بناء حل يناسب السوق الأردني والعربي تحديداً: سهل الاستخدام، معقول السعر، ويعمل عبر واتساب الذي يستخدمه الجميع بالفعل.
+            <span data-lang="ar">قررنا بناء حل يناسب السوق الأردني والعربي تحديداً: سهل الاستخدام، معقول السعر، ويعمل عبر واتساب الذي يستخدمه الجميع بالفعل.</span>
+            <span data-lang="en">We decided to build a solution specifically for the Jordanian and Arab market: easy to use, reasonably priced, and working through WhatsApp that everyone already uses.</span>
           </p>
           <p>
-            اليوم، كرسي يساعد صالونات الحلاقة على توفير الوقت، استقطاب عملاء جدد، وإدارة أعمالهم باحتراف — من أول يوم.
+            <span data-lang="ar">اليوم، كرسي يساعد صالونات الحلاقة على توفير الوقت، استقطاب عملاء جدد، وإدارة أعمالهم باحتراف — من أول يوم.</span>
+            <span data-lang="en">Today, Kursi helps barbershops save time, attract new clients, and manage their business professionally — from day one.</span>
           </p>
         </div>
       </div>
     </section>
 
     <!-- ===== MISSION ===== -->
-    <section class="section section-alt">
+    <section class="section section-alt animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">مهمتنا</span>
-          <h2>ما الذي نسعى إليه</h2>
+          <span class="badge"><span data-lang="ar">مهمتنا</span><span data-lang="en">Our Mission</span></span>
+          <h2><span data-lang="ar">ما الذي نسعى إليه</span><span data-lang="en">What We Strive For</span></h2>
         </div>
         <div class="mission-banner">
-          <h3>مهمتنا تحويل كل كرسي حلاقة إلى عمل تجاري ناجح</h3>
+          <h3>
+            <span data-lang="ar">مهمتنا تحويل كل كرسي حلاقة إلى عمل تجاري ناجح</span>
+            <span data-lang="en">Our mission is to turn every barber's chair into a successful business</span>
+          </h3>
           <p style="color: rgba(255,255,255,0.85); margin: 1rem 0 0; font-size: 1rem;">
-            نؤمن أن كل حلاق يستحق أدوات احترافية تساعده على النمو — بغض النظر عن حجم صالونه أو موقعه.
+            <span data-lang="ar">نؤمن أن كل حلاق يستحق أدوات احترافية تساعده على النمو — بغض النظر عن حجم صالونه أو موقعه.</span>
+            <span data-lang="en">We believe every barber deserves professional tools to help them grow — regardless of salon size or location.</span>
           </p>
         </div>
       </div>
     </section>
 
     <!-- ===== VALUES ===== -->
-    <section class="section">
+    <section class="section animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">قيمنا</span>
-          <h2>ما الذي يميّزنا</h2>
-          <p>قيم نلتزم بها في كل قرار نتخذه</p>
+          <span class="badge"><span data-lang="ar">قيمنا</span><span data-lang="en">Our Values</span></span>
+          <h2><span data-lang="ar">ما الذي يميّزنا</span><span data-lang="en">What Sets Us Apart</span></h2>
+          <p><span data-lang="ar">قيم نلتزم بها في كل قرار نتخذه</span><span data-lang="en">Values we commit to in every decision we make</span></p>
         </div>
         <div class="grid-3">
           <div class="value-card">
             <div class="value-icon">✨</div>
-            <h3>البساطة</h3>
-            <p>نصمم أدواتنا لتكون سهلة الاستخدام من أول يوم — بدون دورات تدريبية أو كتب تعليمية</p>
+            <h3><span data-lang="ar">البساطة</span><span data-lang="en">Simplicity</span></h3>
+            <p><span data-lang="ar">نصمم أدواتنا لتكون سهلة الاستخدام من أول يوم — بدون دورات تدريبية أو كتب تعليمية</span><span data-lang="en">We design our tools to be easy to use from day one — no training courses or manuals needed</span></p>
           </div>
           <div class="value-card">
             <div class="value-icon">🔍</div>
-            <h3>الشفافية</h3>
-            <p>أسعار واضحة وصريحة — بدون رسوم مخفية أو عقود طويلة أو مفاجآت في الفاتورة</p>
+            <h3><span data-lang="ar">الشفافية</span><span data-lang="en">Transparency</span></h3>
+            <p><span data-lang="ar">أسعار واضحة وصريحة — بدون رسوم مخفية أو عقود طويلة أو مفاجآت في الفاتورة</span><span data-lang="en">Clear, honest pricing — no hidden fees, long contracts, or billing surprises</span></p>
           </div>
           <div class="value-card">
             <div class="value-icon">🇯🇴</div>
-            <h3>الدعم المحلي</h3>
-            <p>فريقنا في عمّان — نتكلم لغتك، نفهم سوقك، ونرد عليك بسرعة عبر واتساب</p>
+            <h3><span data-lang="ar">الدعم المحلي</span><span data-lang="en">Local Support</span></h3>
+            <p><span data-lang="ar">فريقنا في عمّان — نتكلم لغتك، نفهم سوقك، ونرد عليك بسرعة عبر واتساب</span><span data-lang="en">Our team is in Amman — we speak your language, understand your market, and respond fast on WhatsApp</span></p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== TEAM ===== -->
-    <section class="section section-alt">
+    <section class="section section-alt animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">الفريق</span>
-          <h2>الناس خلف كرسي</h2>
-          <p>فريق أردني صغير بشغف كبير لتطوير سوق الحلاقة</p>
+          <span class="badge"><span data-lang="ar">الفريق</span><span data-lang="en">The Team</span></span>
+          <h2><span data-lang="ar">الناس خلف كرسي</span><span data-lang="en">The People Behind Kursi</span></h2>
+          <p><span data-lang="ar">فريق أردني صغير بشغف كبير لتطوير سوق الحلاقة</span><span data-lang="en">A small Jordanian team with a big passion for advancing the barbershop market</span></p>
         </div>
         <div class="text-center">
           <div class="team-card">
             <div class="team-avatar">👤</div>
-            <div class="team-name">المؤسس</div>
-            <div class="team-role">المؤسس والمدير التنفيذي</div>
-            <p class="team-bio">مطور ورائد أعمال أردني شغوف بحل مشاكل السوق المحلي بأدوات تقنية بسيطة وفعالة.</p>
+            <div class="team-name"><span data-lang="ar">المؤسس</span><span data-lang="en">Founder</span></div>
+            <div class="team-role"><span data-lang="ar">المؤسس والمدير التنفيذي</span><span data-lang="en">Founder &amp; CEO</span></div>
+            <p class="team-bio">
+              <span data-lang="ar">مطور ورائد أعمال أردني شغوف بحل مشاكل السوق المحلي بأدوات تقنية بسيطة وفعالة.</span>
+              <span data-lang="en">Jordanian developer and entrepreneur passionate about solving local market problems with simple, effective tech tools.</span>
+            </p>
           </div>
           <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.95rem;">
-            📩 تريد الانضمام للفريق؟
+            📩 <span data-lang="ar">تريد الانضمام للفريق؟</span><span data-lang="en">Want to join the team?</span>
             <a href="mailto:admin@kursi.now" style="color: var(--accent);">admin@kursi.now</a>
           </p>
         </div>
@@ -137,15 +162,23 @@
     <!-- ===== CTA ===== -->
     <section class="cta-section">
       <div class="container">
-        <span class="badge">تواصل معنا</span>
-        <h2>عندك سؤال أو اقتراح؟</h2>
-        <p>نحب نسمع منك — تواصل معنا مباشرة وسنرد في أقرب وقت</p>
+        <span class="badge">
+          <span data-lang="ar">تواصل معنا</span><span data-lang="en">Get in Touch</span>
+        </span>
+        <h2>
+          <span data-lang="ar">عندك سؤال أو اقتراح؟</span>
+          <span data-lang="en">Have a question or suggestion?</span>
+        </h2>
+        <p>
+          <span data-lang="ar">نحب نسمع منك — تواصل معنا مباشرة وسنرد في أقرب وقت</span>
+          <span data-lang="en">We love hearing from you — reach out directly and we'll respond soon</span>
+        </p>
         <div class="cta-btns">
           <a href="contact.html" class="btn btn-cta btn-lg">
-            📩 تواصل معنا
+            📩 <span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span>
           </a>
           <a href="https://wa.me/962795070844" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
-            💬 واتساب
+            💬 WhatsApp
           </a>
         </div>
       </div>
@@ -158,30 +191,30 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo">
-            <span class="logo-ar">كرسي</span>
-            <span class="logo-en">Kursi</span>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
           </a>
-          <p>نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</p>
+          <p><span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span><span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span></p>
         </div>
         <div>
-          <h4>روابط سريعة</h4>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
           <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="pricing.html">الأسعار</a></li>
-            <li><a href="privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
           </ul>
         </div>
         <div>
-          <h4>تواصل معنا</h4>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
           <ul>
             <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
             <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
           </ul>
         </div>
         <div>
-          <h4>تابعنا</h4>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
           <div class="social-links">
             <a href="#" class="social-link">📸 Instagram</a>
             <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -189,12 +222,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 كرسي — جميع الحقوق محفوظة</p>
-        <p>صنع بـ ❤️ في عمّان، الأردن</p>
+        <p><span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span><span data-lang="en">© 2026 Kursi — All rights reserved</span></p>
+        <p><span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span><span data-lang="en">Made with ❤️ in Amman, Jordan</span></p>
       </div>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
   <script src="js/main.js"></script>
 </body>
 </html>

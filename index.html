@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>كرسي — نظام حجز ذكي لصالونات الحلاقة</title>
-  <meta name="description" content="واتساب بوت + لوحة تحكم + تطبيق عملاء — كل شيء بمكان واحد. كرسي يساعد صالونات الحلاقة في الأردن على إدارة مواعيدها باحتراف.">
+  <meta name="description" content="كرسي — نظام حجز ذكي لصالونات الحلاقة في الأردن. بوت واتساب + لوحة تحكم + تطبيق عملاء">
+  <meta property="og:title" content="كرسي — نظام حجز صالونات الحلاقة">
+  <meta property="og:description" content="أول نظام حجز واتساب لصالونات الحلاقة في الأردن">
+  <meta property="og:url" content="https://kursi.now">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kursi.now/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,19 +22,29 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="logo">
-          <span class="logo-ar">كرسي</span>
-          <span class="logo-en">Kursi</span>
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text">
+            <span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span>
+          </span>
         </a>
         <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
           <ul class="nav-list">
-            <li><a href="index.html"   class="nav-link">الرئيسية</a></li>
-            <li><a href="pricing.html" class="nav-link">الأسعار</a></li>
-            <li><a href="about.html"   class="nav-link">من نحن</a></li>
-            <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            <li><a href="index.html" class="nav-link">
+              <span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span>
+            </a></li>
+            <li><a href="pricing.html" class="nav-link">
+              <span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span>
+            </a></li>
+            <li><a href="about.html" class="nav-link">
+              <span data-lang="ar">من نحن</span><span data-lang="en">About</span>
+            </a></li>
+            <li><a href="contact.html" class="nav-link">
+              <span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span>
+            </a></li>
           </ul>
         </nav>
         <div class="header-actions">
-          <span class="lang-badge">AR</span>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
           <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -40,107 +58,210 @@
     <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="container">
-        <div class="hero-content">
-          <span class="badge">🇯🇴 مصنوع في الأردن</span>
-          <h1>نظام حجز ذكي<br><span>لصالونات الحلاقة</span></h1>
-          <p class="hero-sub">واتساب بوت + لوحة تحكم + تطبيق عملاء — كل شيء بمكان واحد</p>
-          <div class="hero-ctas">
-            <a href="https://wa.me/962795070844" class="btn btn-cta btn-lg" target="_blank" rel="noopener">
-              💬 ابدأ تجربتك المجانية
-            </a>
-            <a href="pricing.html" class="btn btn-ghost btn-lg">
-              تعرف على الأسعار
-            </a>
+        <div class="hero-layout">
+
+          <div class="hero-content">
+            <span class="badge">
+              <span data-lang="ar">🇯🇴 مصنوع في الأردن</span>
+              <span data-lang="en">🇯🇴 Made in Jordan</span>
+            </span>
+            <h1>
+              <span data-lang="ar">نظام حجز ذكي<br><span class="hl">لصالونات الحلاقة</span></span>
+              <span data-lang="en">Smart Booking System<br><span class="hl">for Barbershops</span></span>
+            </h1>
+            <p class="hero-sub">
+              <span data-lang="ar">واتساب بوت + لوحة تحكم + تطبيق عملاء — كل شيء بمكان واحد</span>
+              <span data-lang="en">WhatsApp Bot + Dashboard + Client App — All in One Place</span>
+            </p>
+            <div class="hero-ctas">
+              <a href="https://wa.me/962795070844" class="btn btn-cta btn-lg" target="_blank" rel="noopener">
+                <span data-lang="ar">💬 ابدأ تجربتك المجانية</span>
+                <span data-lang="en">💬 Start Free Trial</span>
+              </a>
+              <a href="pricing.html" class="btn btn-ghost btn-lg">
+                <span data-lang="ar">تعرف على الأسعار</span>
+                <span data-lang="en">View Pricing</span>
+              </a>
+            </div>
           </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <span class="hero-stat-num">3</span>
-              <span class="hero-stat-label">دقائق للتفعيل</span>
+
+          <!-- Phone Mockup -->
+          <div class="phone-mockup" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="chat-header">
+                <div class="chat-avatar">✂️</div>
+                <div>
+                  <div class="chat-name">
+                    <span data-lang="ar">صالون الفن</span><span data-lang="en">Art Salon</span>
+                  </div>
+                  <div class="chat-status">
+                    <span data-lang="ar">متاح الآن</span><span data-lang="en">Online</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-body">
+                <div class="chat-msg client">
+                  <span data-lang="ar">مرحبا</span><span data-lang="en">Hello</span>
+                </div>
+                <div class="chat-msg bot">
+                  <span data-lang="ar">أهلاً! 👋<br>اختر الخدمة:<br>1️⃣ فيد<br>2️⃣ قصة كلاسيك</span>
+                  <span data-lang="en">Hi! 👋<br>Choose service:<br>1️⃣ Fade<br>2️⃣ Classic Cut</span>
+                </div>
+                <div class="chat-msg client">1</div>
+                <div class="chat-msg bot">
+                  <span data-lang="ar">✅ تم الحجز!<br>اليوم ٣:٠٠ م</span>
+                  <span data-lang="en">✅ Booking confirmed!<br>Today 3:00 PM</span>
+                </div>
+              </div>
             </div>
-            <div class="hero-stat">
-              <span class="hero-stat-num">٠ دينار</span>
-              <span class="hero-stat-label">لبدء التجربة المجانية</span>
-            </div>
-            <div class="hero-stat">
-              <span class="hero-stat-num">24/7</span>
-              <span class="hero-stat-label">حجز تلقائي بدون انتظار</span>
-            </div>
+          </div>
+
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">3</span>
+            <span class="hero-stat-label">
+              <span data-lang="ar">دقائق للتفعيل</span>
+              <span data-lang="en">Minutes to activate</span>
+            </span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">0</span>
+            <span class="hero-stat-label">
+              <span data-lang="ar">دينار لبدء التجربة المجانية</span>
+              <span data-lang="en">JOD to start free</span>
+            </span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">24/7</span>
+            <span class="hero-stat-label">
+              <span data-lang="ar">حجز تلقائي بدون انتظار</span>
+              <span data-lang="en">Automatic booking</span>
+            </span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===== TRUST BAR ===== -->
+    <div class="trust-bar">
+      <div class="container">
+        <div class="trust-items">
+          <div class="trust-item">
+            <span>✓</span>
+            <span data-lang="ar">أول نظام حجز واتساب في الأردن</span>
+            <span data-lang="en">Jordan's First WhatsApp Booking System</span>
+          </div>
+          <div class="trust-item">
+            <span>✓</span>
+            <span data-lang="ar">دعم فني 24/7</span>
+            <span data-lang="en">24/7 Technical Support</span>
+          </div>
+          <div class="trust-item">
+            <span>✓</span>
+            <span data-lang="ar">بدون عقود</span>
+            <span data-lang="en">No Contracts</span>
+          </div>
+          <div class="trust-item">
+            <span>✓</span>
+            <span data-lang="ar">إلغاء في أي وقت</span>
+            <span data-lang="en">Cancel Anytime</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== FEATURES ===== -->
-    <section class="section">
+    <section class="section animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">المميزات</span>
-          <h2>كل ما يحتاجه صالونك في مكان واحد</h2>
-          <p>أدوات احترافية مصممة خصيصاً لسوق الحلاقة في الأردن والعالم العربي</p>
+          <span class="badge">
+            <span data-lang="ar">المميزات</span><span data-lang="en">Features</span>
+          </span>
+          <h2>
+            <span data-lang="ar">كل ما يحتاجه صالونك في مكان واحد</span>
+            <span data-lang="en">Everything Your Salon Needs in One Place</span>
+          </h2>
+          <p>
+            <span data-lang="ar">أدوات احترافية مصممة خصيصاً لسوق الحلاقة في الأردن والعالم العربي</span>
+            <span data-lang="en">Professional tools designed for barbershops in Jordan and the Arab world</span>
+          </p>
         </div>
         <div class="grid-3">
-          <div class="feature-card">
-            <span class="feature-icon">📱</span>
-            <h3>حجز تلقائي عبر واتساب</h3>
-            <p>عملاؤك يحجزون مواعيدهم مباشرة من واتساب — بدون تحميل أي تطبيق</p>
+          <div class="feature-card animate-up">
+            <div class="feature-icon-wrap">📱</div>
+            <h3><span data-lang="ar">حجز تلقائي عبر واتساب</span><span data-lang="en">WhatsApp Auto Booking</span></h3>
+            <p><span data-lang="ar">عملاؤك يحجزون مواعيدهم مباشرة من واتساب — بدون تحميل أي تطبيق</span><span data-lang="en">Clients book appointments directly on WhatsApp — no app download needed</span></p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">📊</span>
-            <h3>لوحة تحكم احترافية</h3>
-            <p>تابع مواعيدك وإيراداتك وعملاءك من شاشة واحدة في أي وقت ومن أي مكان</p>
+          <div class="feature-card animate-up">
+            <div class="feature-icon-wrap">📊</div>
+            <h3><span data-lang="ar">لوحة تحكم احترافية</span><span data-lang="en">Professional Dashboard</span></h3>
+            <p><span data-lang="ar">تابع مواعيدك وإيراداتك وعملاءك من شاشة واحدة في أي وقت ومن أي مكان</span><span data-lang="en">Track appointments, revenue & clients from one screen, anytime, anywhere</span></p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">⭐</span>
-            <h3>تطبيق اكتشاف العملاء</h3>
-            <p>عملاء جدد يجدونك عبر تطبيق كرسي في منطقتهم — توسّع قاعدة عملائك تلقائياً</p>
+          <div class="feature-card animate-up">
+            <div class="feature-icon-wrap">⭐</div>
+            <h3><span data-lang="ar">تطبيق اكتشاف العملاء</span><span data-lang="en">Client Discovery App</span></h3>
+            <p><span data-lang="ar">عملاء جدد يجدونك عبر تطبيق كرسي في منطقتهم — توسّع قاعدة عملائك تلقائياً</span><span data-lang="en">New clients find you through the Kursi app in their area — grow your client base automatically</span></p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">🔔</span>
-            <h3>تذكيرات تلقائية</h3>
-            <p>البوت يذكّر عملاءك بمواعيدهم قبل ساعتين — يقلل حالات عدم الحضور إلى النصف</p>
+          <div class="feature-card animate-up">
+            <div class="feature-icon-wrap">🔔</div>
+            <h3><span data-lang="ar">تذكيرات تلقائية</span><span data-lang="en">Automatic Reminders</span></h3>
+            <p><span data-lang="ar">البوت يذكّر عملاءك بمواعيدهم قبل ساعتين — يقلل حالات عدم الحضور إلى النصف</span><span data-lang="en">Bot reminds clients 2 hours before their appointment — cuts no-shows in half</span></p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">💳</span>
-            <h3>تتبع مدفوعات CliQ</h3>
-            <p>تتبع مدفوعات CliQ وإيراداتك اليومية والشهرية بدقة كاملة</p>
+          <div class="feature-card animate-up">
+            <div class="feature-icon-wrap">💳</div>
+            <h3><span data-lang="ar">تتبع مدفوعات CliQ</span><span data-lang="en">CliQ Payment Tracking</span></h3>
+            <p><span data-lang="ar">تتبع مدفوعات CliQ وإيراداتك اليومية والشهرية بدقة كاملة</span><span data-lang="en">Track CliQ payments and daily/monthly revenue with full accuracy</span></p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">👥</span>
-            <h3>إدارة فريق الحلاقين</h3>
-            <p>أضف حلاقين متعددين، خصص مواعيدهم، وتابع أداء كل واحد على حدة</p>
+          <div class="feature-card animate-up">
+            <div class="feature-icon-wrap">👥</div>
+            <h3><span data-lang="ar">إدارة فريق الحلاقين</span><span data-lang="en">Barber Team Management</span></h3>
+            <p><span data-lang="ar">أضف حلاقين متعددين، خصص مواعيدهم، وتابع أداء كل واحد على حدة</span><span data-lang="en">Add multiple barbers, set their schedules, and track each one's performance</span></p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== HOW IT WORKS ===== -->
-    <section class="section section-alt">
+    <section class="section section-alt animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">كيف يعمل</span>
-          <h2>من رسالة واتساب إلى حجز مؤكد في دقيقتين</h2>
-          <p>بدون تعقيد — عملاؤك يعرفون واتساب بالفعل</p>
+          <span class="badge">
+            <span data-lang="ar">كيف يعمل</span><span data-lang="en">How It Works</span>
+          </span>
+          <h2>
+            <span data-lang="ar">من رسالة واتساب إلى حجز مؤكد في دقيقتين</span>
+            <span data-lang="en">From a WhatsApp message to a confirmed booking in 2 minutes</span>
+          </h2>
+          <p>
+            <span data-lang="ar">بدون تعقيد — عملاؤك يعرفون واتساب بالفعل</span>
+            <span data-lang="en">No complexity — your clients already use WhatsApp</span>
+          </p>
         </div>
         <div class="steps">
           <div class="step">
             <div class="step-num">١</div>
             <div class="step-content">
-              <h3>العميل يرسل رسالة واتساب</h3>
-              <p>يرسل رسالة لرقم صالونك ويحجز موعده خلال دقيقتين — بدون تحميل أي تطبيق أو إنشاء حساب</p>
+              <h3><span data-lang="ar">العميل يرسل رسالة واتساب</span><span data-lang="en">Client sends a WhatsApp message</span></h3>
+              <p><span data-lang="ar">يرسل رسالة لرقم صالونك ويحجز موعده خلال دقيقتين — بدون تحميل أي تطبيق أو إنشاء حساب</span><span data-lang="en">They message your salon's number and book in 2 minutes — no app or account needed</span></p>
             </div>
           </div>
+          <div class="step-connector">↓</div>
           <div class="step">
             <div class="step-num">٢</div>
             <div class="step-content">
-              <h3>الحجز يظهر على لوحة التحكم</h3>
-              <p>تشوف كل المواعيد والعملاء من شاشة وحدة — اسم العميل، الخدمة، الوقت، والحلاق</p>
+              <h3><span data-lang="ar">الحجز يظهر على لوحة التحكم</span><span data-lang="en">Booking appears on your dashboard</span></h3>
+              <p><span data-lang="ar">تشوف كل المواعيد والعملاء من شاشة واحدة — اسم العميل، الخدمة، الوقت، والحلاق</span><span data-lang="en">See all appointments and clients in one screen — name, service, time, and barber</span></p>
             </div>
           </div>
+          <div class="step-connector">↓</div>
           <div class="step">
             <div class="step-num">٣</div>
             <div class="step-content">
-              <h3>تذكير تلقائي للعميل</h3>
-              <p>البوت يذكّر العميل تلقائياً قبل موعده بساعتين — بدون أي تدخل منك</p>
+              <h3><span data-lang="ar">تذكير تلقائي للعميل</span><span data-lang="en">Automatic reminder to client</span></h3>
+              <p><span data-lang="ar">البوت يذكّر العميل تلقائياً قبل موعده بساعتين — بدون أي تدخل منك</span><span data-lang="en">Bot automatically reminds the client 2 hours before — no effort from you</span></p>
             </div>
           </div>
         </div>
@@ -148,78 +269,114 @@
     </section>
 
     <!-- ===== PRICING PREVIEW ===== -->
-    <section class="section">
+    <section class="section animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">الأسعار</span>
-          <h2>أسعار بسيطة وشفافة</h2>
-          <p>ابدأ مجاناً — ارتقِ عندما تنمو</p>
+          <span class="badge">
+            <span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span>
+          </span>
+          <h2>
+            <span data-lang="ar">أسعار بسيطة وشفافة</span>
+            <span data-lang="en">Simple &amp; Transparent Pricing</span>
+          </h2>
+          <p>
+            <span data-lang="ar">ابدأ مجاناً — ارتقِ عندما تنمو</span>
+            <span data-lang="en">Start free — grow when you're ready</span>
+          </p>
         </div>
         <div class="pricing-preview">
           <div class="pricing-preview-card">
             <h4>Starter</h4>
-            <div class="pricing-preview-price">مجاني</div>
-            <p>ابدأ بدون مخاطرة</p>
+            <div class="pricing-preview-price">
+              <span data-lang="ar">مجاني</span><span data-lang="en">Free</span>
+            </div>
+            <p><span data-lang="ar">ابدأ بدون مخاطرة</span><span data-lang="en">Start risk-free</span></p>
           </div>
           <div class="pricing-preview-card featured">
-            <h4>⭐ Pro — الأكثر شيوعاً</h4>
-            <div class="pricing-preview-price">20 <span>دينار / شهر</span></div>
-            <p>للمحترفين الجادين</p>
+            <h4>⭐ Pro</h4>
+            <div class="pricing-preview-price">25 <span><span data-lang="ar">دينار / شهر</span><span data-lang="en">JOD / mo</span></span></div>
+            <p><span data-lang="ar">للمحترفين الجادين</span><span data-lang="en">For serious professionals</span></p>
           </div>
           <div class="pricing-preview-card">
             <h4>Growth</h4>
-            <div class="pricing-preview-price">35 <span>دينار / شهر</span></div>
-            <p>للسلاسل والفروع</p>
+            <div class="pricing-preview-price">35 <span><span data-lang="ar">دينار / شهر</span><span data-lang="en">JOD / mo</span></span></div>
+            <p><span data-lang="ar">للسلاسل والفروع</span><span data-lang="en">For chains &amp; branches</span></p>
           </div>
         </div>
         <div class="text-center">
-          <a href="pricing.html" class="btn btn-primary btn-lg">شوف التفاصيل الكاملة →</a>
+          <a href="pricing.html" class="btn btn-primary btn-lg">
+            <span data-lang="ar">شوف التفاصيل الكاملة ←</span>
+            <span data-lang="en">View Full Details →</span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="section section-alt">
+    <section class="section section-alt animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">آراء العملاء</span>
-          <h2>قريباً — آراء عملائنا الأوائل</h2>
-          <p>نعمل مع أوائل الصالونات في عمّان — آراؤهم في الطريق</p>
+          <span class="badge">
+            <span data-lang="ar">آراء العملاء</span><span data-lang="en">Customer Reviews</span>
+          </span>
+          <h2>
+            <span data-lang="ar">قريباً — آراء عملائنا الأوائل</span>
+            <span data-lang="en">Coming Soon — Our First Client Reviews</span>
+          </h2>
+          <p>
+            <span data-lang="ar">نعمل مع أوائل الصالونات في عمّان — آراؤهم في الطريق</span>
+            <span data-lang="en">Working with early salons in Amman — their reviews are on the way</span>
+          </p>
         </div>
         <div class="grid-3">
           <div class="testimonial-card coming-soon">
-            <span class="coming-soon-label">قريباً</span>
+            <span class="coming-soon-label">
+              <span data-lang="ar">قريباً</span><span data-lang="en">Soon</span>
+            </span>
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"كرسي غيّر طريقة إدارة صالوني بالكامل — لا أتخيل أعمل بدونه."</p>
+            <p class="testimonial-text">
+              <span data-lang="ar">"كرسي غيّر طريقة إدارة صالوني بالكامل — لا أتخيل أعمل بدونه."</span>
+              <span data-lang="en">"Kursi completely changed how I manage my salon — I can't imagine working without it."</span>
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">💈</div>
               <div>
-                <div class="testimonial-name">أحمد الخالدي</div>
-                <div class="testimonial-role">صاحب صالون الخالدي، عمّان</div>
+                <div class="testimonial-name"><span data-lang="ar">أحمد الخالدي</span><span data-lang="en">Ahmad Al-Khalidi</span></div>
+                <div class="testimonial-role"><span data-lang="ar">صاحب صالون الخالدي، عمّان</span><span data-lang="en">Owner, Al-Khalidi Salon, Amman</span></div>
               </div>
             </div>
           </div>
           <div class="testimonial-card coming-soon">
-            <span class="coming-soon-label">قريباً</span>
+            <span class="coming-soon-label">
+              <span data-lang="ar">قريباً</span><span data-lang="en">Soon</span>
+            </span>
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"عملاؤنا بحبوا الحجز عبر واتساب — سهل ومريح وما في داعي لتحميل شي."</p>
+            <p class="testimonial-text">
+              <span data-lang="ar">"عملاؤنا بحبوا الحجز عبر واتساب — سهل ومريح وما في داعي لتحميل شي."</span>
+              <span data-lang="en">"Our clients love booking via WhatsApp — easy, convenient, and no app to download."</span>
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">✂️</div>
               <div>
-                <div class="testimonial-name">محمد العمري</div>
-                <div class="testimonial-role">مدير صالون الفن، الزرقاء</div>
+                <div class="testimonial-name"><span data-lang="ar">محمد العمري</span><span data-lang="en">Mohammad Al-Omari</span></div>
+                <div class="testimonial-role"><span data-lang="ar">مدير صالون الفن، الزرقاء</span><span data-lang="en">Manager, Art Salon, Zarqa</span></div>
               </div>
             </div>
           </div>
           <div class="testimonial-card coming-soon">
-            <span class="coming-soon-label">قريباً</span>
+            <span class="coming-soon-label">
+              <span data-lang="ar">قريباً</span><span data-lang="en">Soon</span>
+            </span>
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"التذكيرات التلقائية خفضت نسبة الغياب بشكل ملحوظ — نتيجة واضحة من أول شهر."</p>
+            <p class="testimonial-text">
+              <span data-lang="ar">"التذكيرات التلقائية خفضت نسبة الغياب بشكل ملحوظ — نتيجة واضحة من أول شهر."</span>
+              <span data-lang="en">"Automatic reminders noticeably cut no-shows — clear results from the first month."</span>
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">🪒</div>
               <div>
-                <div class="testimonial-name">خالد النمري</div>
-                <div class="testimonial-role">صالون الأصالة، إربد</div>
+                <div class="testimonial-name"><span data-lang="ar">خالد النمري</span><span data-lang="en">Khaled Al-Nimri</span></div>
+                <div class="testimonial-role"><span data-lang="ar">صالون الأصالة، إربد</span><span data-lang="en">Al-Asala Salon, Irbid</span></div>
               </div>
             </div>
           </div>
@@ -228,17 +385,27 @@
     </section>
 
     <!-- ===== FINAL CTA ===== -->
-    <section class="cta-section">
+    <section class="cta-section animate-up">
       <div class="container">
-        <span class="badge">ابدأ الآن</span>
-        <h2>جاهز تبدأ؟<br>سجّل الآن واحصل على ٣ أشهر مجاناً</h2>
-        <p>بدون بطاقة ائتمانية — بدون عقود طويلة — بدون تعقيد</p>
+        <span class="badge">
+          <span data-lang="ar">ابدأ الآن</span><span data-lang="en">Get Started</span>
+        </span>
+        <h2>
+          <span data-lang="ar">جاهز تبدأ؟<br>سجّل الآن واحصل على ٣ أشهر مجاناً</span>
+          <span data-lang="en">Ready to start?<br>Sign up now and get 3 months free</span>
+        </h2>
+        <p>
+          <span data-lang="ar">بدون بطاقة ائتمانية — بدون عقود طويلة — بدون تعقيد</span>
+          <span data-lang="en">No credit card — No long contracts — No hassle</span>
+        </p>
         <div class="cta-btns">
           <a href="https://wa.me/962795070844" class="btn btn-cta btn-lg" target="_blank" rel="noopener">
-            💬 تواصل معنا على واتساب
+            <span data-lang="ar">💬 تواصل معنا على واتساب</span>
+            <span data-lang="en">💬 Contact Us on WhatsApp</span>
           </a>
           <a href="pricing.html" class="btn btn-ghost btn-lg">
-            تعرف على الأسعار
+            <span data-lang="ar">تعرف على الأسعار</span>
+            <span data-lang="en">View Pricing</span>
           </a>
         </div>
       </div>
@@ -251,30 +418,35 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo">
-            <span class="logo-ar">كرسي</span>
-            <span class="logo-en">Kursi</span>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text">
+              <span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span>
+            </span>
           </a>
-          <p>نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</p>
+          <p>
+            <span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span>
+            <span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span>
+          </p>
         </div>
         <div>
-          <h4>روابط سريعة</h4>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
           <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="pricing.html">الأسعار</a></li>
-            <li><a href="privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
           </ul>
         </div>
         <div>
-          <h4>تواصل معنا</h4>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
           <ul>
             <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
             <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
           </ul>
         </div>
         <div>
-          <h4>تابعنا</h4>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
           <div class="social-links">
             <a href="#" class="social-link">📸 Instagram</a>
             <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -282,12 +454,19 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 كرسي — جميع الحقوق محفوظة</p>
-        <p>صنع بـ ❤️ في عمّان، الأردن</p>
+        <p>
+          <span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span>
+          <span data-lang="en">© 2026 Kursi — All rights reserved</span>
+        </p>
+        <p>
+          <span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span>
+          <span data-lang="en">Made with ❤️ in Amman, Jordan</span>
+        </p>
       </div>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
   <script src="js/main.js"></script>
 </body>
 </html>

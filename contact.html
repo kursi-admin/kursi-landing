@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معنا | كرسي</title>
+  <title>تواصل معنا — كرسي</title>
   <meta name="description" content="تواصل مع فريق كرسي — نحن هنا للمساعدة عبر البريد الإلكتروني أو واتساب.">
+  <meta property="og:title" content="تواصل معنا — كرسي">
+  <meta property="og:description" content="أول نظام حجز واتساب لصالونات الحلاقة في الأردن">
+  <meta property="og:url" content="https://kursi.now/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kursi.now/contact.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,19 +22,19 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="logo">
-          <span class="logo-ar">كرسي</span>
-          <span class="logo-en">Kursi</span>
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
         </a>
         <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
           <ul class="nav-list">
-            <li><a href="index.html"   class="nav-link">الرئيسية</a></li>
-            <li><a href="pricing.html" class="nav-link">الأسعار</a></li>
-            <li><a href="about.html"   class="nav-link">من نحن</a></li>
-            <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            <li><a href="index.html" class="nav-link"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html" class="nav-link"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="about.html" class="nav-link"><span data-lang="ar">من نحن</span><span data-lang="en">About</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span></a></li>
           </ul>
         </nav>
         <div class="header-actions">
-          <span class="lang-badge">AR</span>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
           <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -40,9 +48,12 @@
     <!-- ===== PAGE HERO ===== -->
     <section class="page-hero">
       <div class="container">
-        <span class="badge">تواصل معنا</span>
-        <h1>نحن هنا للمساعدة</h1>
-        <p>سواء كان لديك سؤال، اقتراح، أو تريد تجربة كرسي — فريقنا يرد بسرعة</p>
+        <span class="badge"><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></span>
+        <h1><span data-lang="ar">نحن هنا للمساعدة</span><span data-lang="en">We're Here to Help</span></h1>
+        <p>
+          <span data-lang="ar">سواء كان لديك سؤال، اقتراح، أو تريد تجربة كرسي — فريقنا يرد بسرعة</span>
+          <span data-lang="en">Whether you have a question, suggestion, or want to try Kursi — our team responds quickly</span>
+        </p>
       </div>
     </section>
 
@@ -53,13 +64,16 @@
 
           <!-- Contact Info -->
           <div>
-            <h2 style="margin-bottom: 1.5rem;">معلومات التواصل</h2>
+            <h2 style="margin-bottom: 1.5rem;">
+              <span data-lang="ar">معلومات التواصل</span>
+              <span data-lang="en">Contact Information</span>
+            </h2>
 
             <div class="contact-info-card">
               <div class="contact-icon">📧</div>
               <div>
-                <h4>البريد الإلكتروني</h4>
-                <p>للاستفسارات العامة</p>
+                <h4><span data-lang="ar">البريد الإلكتروني</span><span data-lang="en">Email</span></h4>
+                <p><span data-lang="ar">للاستفسارات العامة</span><span data-lang="en">For general inquiries</span></p>
                 <a href="mailto:admin@kursi.now">admin@kursi.now</a>
               </div>
             </div>
@@ -67,8 +81,8 @@
             <div class="contact-info-card">
               <div class="contact-icon">🛟</div>
               <div>
-                <h4>الدعم الفني</h4>
-                <p>للمستخدمين الحاليين</p>
+                <h4><span data-lang="ar">الدعم الفني</span><span data-lang="en">Technical Support</span></h4>
+                <p><span data-lang="ar">للمستخدمين الحاليين</span><span data-lang="en">For existing users</span></p>
                 <a href="mailto:support@kursi.now">support@kursi.now</a>
               </div>
             </div>
@@ -76,8 +90,8 @@
             <div class="contact-info-card">
               <div class="contact-icon">💬</div>
               <div>
-                <h4>واتساب</h4>
-                <p>أسرع طريقة للتواصل معنا</p>
+                <h4>WhatsApp</h4>
+                <p><span data-lang="ar">أسرع طريقة للتواصل معنا</span><span data-lang="en">Fastest way to reach us</span></p>
                 <a href="https://wa.me/962795070844" target="_blank" rel="noopener">+962 79 507 0844</a>
               </div>
             </div>
@@ -85,45 +99,65 @@
             <div class="contact-info-card">
               <div class="contact-icon">📍</div>
               <div>
-                <h4>الموقع</h4>
-                <p>نعمل من قلب العاصمة</p>
-                <span style="color: var(--text-muted); font-size: 0.92rem;">عمّان، الأردن 🇯🇴</span>
+                <h4><span data-lang="ar">الموقع</span><span data-lang="en">Location</span></h4>
+                <p><span data-lang="ar">نعمل من قلب العاصمة</span><span data-lang="en">Operating from the capital</span></p>
+                <span style="color: var(--text-muted); font-size: 0.92rem;">
+                  <span data-lang="ar">عمّان، الأردن 🇯🇴</span>
+                  <span data-lang="en">Amman, Jordan 🇯🇴</span>
+                </span>
               </div>
             </div>
 
             <div style="margin-top: 1.5rem; background: var(--accent-light); border-radius: var(--radius-card); padding: 1.25rem 1.5rem;">
               <p style="margin: 0; font-size: 0.95rem; color: var(--accent);">
-                ⏱ نرد على رسائل واتساب في غضون ساعة خلال ساعات العمل (9 صباحاً – 9 مساءً بتوقيت عمّان).
+                ⏱
+                <span data-lang="ar">نرد على رسائل واتساب في غضون ساعة خلال ساعات العمل (9 صباحاً – 9 مساءً بتوقيت عمّان).</span>
+                <span data-lang="en">We respond to WhatsApp messages within one hour during business hours (9am–9pm Amman time).</span>
               </p>
             </div>
           </div>
 
           <!-- Contact Form -->
           <div class="contact-form">
-            <h3>أرسل لنا رسالة</h3>
+            <h3><span data-lang="ar">أرسل لنا رسالة</span><span data-lang="en">Send Us a Message</span></h3>
             <form action="mailto:admin@kursi.now" method="post" enctype="text/plain">
               <div class="form-group">
-                <label for="name">الاسم الكامل *</label>
-                <input type="text" id="name" name="name" placeholder="اسمك" required>
+                <label for="name">
+                  <span data-lang="ar">الاسم الكامل *</span>
+                  <span data-lang="en">Full Name *</span>
+                </label>
+                <input type="text" id="name" name="name" placeholder="اسمك / Your name" required>
               </div>
               <div class="form-group">
-                <label for="email">البريد الإلكتروني *</label>
+                <label for="email">
+                  <span data-lang="ar">البريد الإلكتروني *</span>
+                  <span data-lang="en">Email Address *</span>
+                </label>
                 <input type="email" id="email" name="email" placeholder="email@example.com" dir="ltr" required>
               </div>
               <div class="form-group">
-                <label for="phone">رقم الهاتف (اختياري)</label>
+                <label for="phone">
+                  <span data-lang="ar">رقم الهاتف (اختياري)</span>
+                  <span data-lang="en">Phone Number (optional)</span>
+                </label>
                 <input type="tel" id="phone" name="phone" placeholder="+962 7x xxx xxxx" dir="ltr">
               </div>
               <div class="form-group">
-                <label for="subject">الموضوع *</label>
-                <input type="text" id="subject" name="subject" placeholder="استفسار عن الأسعار / دعم فني / اقتراح..." required>
+                <label for="subject">
+                  <span data-lang="ar">الموضوع *</span>
+                  <span data-lang="en">Subject *</span>
+                </label>
+                <input type="text" id="subject" name="subject" placeholder="استفسار / Inquiry..." required>
               </div>
               <div class="form-group">
-                <label for="message">رسالتك *</label>
-                <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                <label for="message">
+                  <span data-lang="ar">رسالتك *</span>
+                  <span data-lang="en">Your Message *</span>
+                </label>
+                <textarea id="message" name="message" placeholder="اكتب رسالتك هنا... / Write your message here..." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary form-submit btn-lg">
-                📩 أرسل الرسالة
+                📩 <span data-lang="ar">أرسل الرسالة</span><span data-lang="en">Send Message</span>
               </button>
             </form>
           </div>
@@ -133,32 +167,32 @@
     </section>
 
     <!-- ===== QUICK LINKS ===== -->
-    <section class="section section-alt">
+    <section class="section section-alt animate-up">
       <div class="container">
         <div class="section-header">
-          <span class="badge">روابط سريعة</span>
-          <h2>هل تبحث عن شيء محدد؟</h2>
+          <span class="badge"><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></span>
+          <h2><span data-lang="ar">هل تبحث عن شيء محدد؟</span><span data-lang="en">Looking for Something Specific?</span></h2>
         </div>
         <div class="grid-3">
           <a href="pricing.html" style="display: block;">
             <div class="feature-card" style="cursor: pointer;">
-              <span class="feature-icon">💰</span>
-              <h3>الأسعار والخطط</h3>
-              <p>تعرف على كل خطة ومميزاتها بالتفصيل</p>
+              <div class="feature-icon-wrap">💰</div>
+              <h3><span data-lang="ar">الأسعار والخطط</span><span data-lang="en">Pricing &amp; Plans</span></h3>
+              <p><span data-lang="ar">تعرف على كل خطة ومميزاتها بالتفصيل</span><span data-lang="en">Explore each plan and its features in detail</span></p>
             </div>
           </a>
           <a href="https://wa.me/962795070844" target="_blank" rel="noopener" style="display: block;">
             <div class="feature-card" style="cursor: pointer;">
-              <span class="feature-icon">💬</span>
-              <h3>ابدأ على واتساب</h3>
-              <p>أسرع طريقة لتجربة كرسي والتحدث مع الفريق</p>
+              <div class="feature-icon-wrap">💬</div>
+              <h3><span data-lang="ar">ابدأ على واتساب</span><span data-lang="en">Start on WhatsApp</span></h3>
+              <p><span data-lang="ar">أسرع طريقة لتجربة كرسي والتحدث مع الفريق</span><span data-lang="en">Fastest way to try Kursi and talk to the team</span></p>
             </div>
           </a>
           <a href="about.html" style="display: block;">
             <div class="feature-card" style="cursor: pointer;">
-              <span class="feature-icon">👥</span>
-              <h3>تعرف علينا</h3>
-              <p>اقرأ قصتنا، مهمتنا، وقيمنا</p>
+              <div class="feature-icon-wrap">👥</div>
+              <h3><span data-lang="ar">تعرف علينا</span><span data-lang="en">Get to Know Us</span></h3>
+              <p><span data-lang="ar">اقرأ قصتنا، مهمتنا، وقيمنا</span><span data-lang="en">Read our story, mission, and values</span></p>
             </div>
           </a>
         </div>
@@ -172,30 +206,30 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo">
-            <span class="logo-ar">كرسي</span>
-            <span class="logo-en">Kursi</span>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
           </a>
-          <p>نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</p>
+          <p><span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span><span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span></p>
         </div>
         <div>
-          <h4>روابط سريعة</h4>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
           <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="pricing.html">الأسعار</a></li>
-            <li><a href="privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
           </ul>
         </div>
         <div>
-          <h4>تواصل معنا</h4>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
           <ul>
             <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
             <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
           </ul>
         </div>
         <div>
-          <h4>تابعنا</h4>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
           <div class="social-links">
             <a href="#" class="social-link">📸 Instagram</a>
             <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -203,12 +237,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 كرسي — جميع الحقوق محفوظة</p>
-        <p>صنع بـ ❤️ في عمّان، الأردن</p>
+        <p><span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span><span data-lang="en">© 2026 Kursi — All rights reserved</span></p>
+        <p><span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span><span data-lang="en">Made with ❤️ in Amman, Jordan</span></p>
       </div>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
   <script src="js/main.js"></script>
 </body>
 </html>

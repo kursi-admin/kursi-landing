@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سياسة الخصوصية | كرسي</title>
-  <meta name="description" content="سياسة خصوصية كرسي — كيف نجمع بياناتك ونستخدمها ونحميها. Privacy Policy for Kursi booking platform.">
+  <title>سياسة الخصوصية — كرسي</title>
+  <meta name="description" content="سياسة خصوصية كرسي — كيف نجمع بياناتك ونستخدمها ونحميها.">
+  <meta property="og:title" content="سياسة الخصوصية — كرسي">
+  <meta property="og:description" content="أول نظام حجز واتساب لصالونات الحلاقة في الأردن">
+  <meta property="og:url" content="https://kursi.now/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kursi.now/privacy.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,19 +22,19 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="logo">
-          <span class="logo-ar">كرسي</span>
-          <span class="logo-en">Kursi</span>
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
         </a>
         <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
           <ul class="nav-list">
-            <li><a href="index.html"   class="nav-link">الرئيسية</a></li>
-            <li><a href="pricing.html" class="nav-link">الأسعار</a></li>
-            <li><a href="about.html"   class="nav-link">من نحن</a></li>
-            <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            <li><a href="index.html" class="nav-link"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html" class="nav-link"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="about.html" class="nav-link"><span data-lang="ar">من نحن</span><span data-lang="en">About</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span></a></li>
           </ul>
         </nav>
         <div class="header-actions">
-          <span class="lang-badge">AR</span>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
           <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -40,29 +48,24 @@
     <!-- ===== LEGAL HERO ===== -->
     <section class="legal-hero">
       <div class="container text-center">
-        <h1>سياسة الخصوصية / Privacy Policy</h1>
-        <p class="effective-date">تاريخ السريان: ١٢ مايو ٢٠٢٦ — Effective Date: May 12, 2026</p>
-        <div class="lang-tabs">
-          <a href="#english" class="lang-tab">English</a>
-          <a href="#arabic"  class="lang-tab active">العربية</a>
-        </div>
+        <h1>
+          <span data-lang="ar">سياسة الخصوصية</span>
+          <span data-lang="en">Privacy Policy</span>
+        </h1>
+        <p class="effective-date">
+          <span data-lang="ar">تاريخ السريان: ١٢ مايو ٢٠٢٦</span>
+          <span data-lang="en">Effective Date: May 12, 2026</span>
+        </p>
       </div>
     </section>
 
     <!-- ===== ENGLISH VERSION ===== -->
-    <div class="legal-content ltr-section" id="english" lang="en" dir="ltr">
+    <div class="legal-content ltr-section" data-lang="en" lang="en" dir="ltr">
 
       <div class="legal-section">
         <h2>1. Introduction</h2>
-        <p>
-          Kursi ("we," "us," or "our") operates a WhatsApp-based appointment booking platform for barbershops,
-          along with a management dashboard and client discovery application. This Privacy Policy explains how
-          we collect, use, share, and protect information about you when you use our services.
-        </p>
-        <p>
-          This policy is effective as of <strong>May 12, 2026</strong>. By using Kursi, you agree to the
-          collection and use of information in accordance with this policy.
-        </p>
+        <p>Kursi ("we," "us," or "our") operates a WhatsApp-based appointment booking platform for barbershops, along with a management dashboard and client discovery application. This Privacy Policy explains how we collect, use, share, and protect information about you when you use our services.</p>
+        <p>This policy is effective as of <strong>May 12, 2026</strong>. By using Kursi, you agree to the collection and use of information in accordance with this policy.</p>
       </div>
 
       <div class="legal-section">
@@ -96,42 +99,24 @@
           <li>Respond to customer support requests</li>
           <li>Generate anonymized aggregate analytics (e.g., total bookings per region)</li>
         </ul>
-        <p>
-          <strong>We do NOT:</strong> sell your personal data, use it for targeted advertising,
-          share it with marketing companies, or process it for any purpose beyond service delivery.
-        </p>
+        <p><strong>We do NOT:</strong> sell your personal data, use it for targeted advertising, share it with marketing companies, or process it for any purpose beyond service delivery.</p>
       </div>
 
       <div class="legal-section">
         <h2>4. Data Sharing</h2>
         <p>Your data may be shared only in the following circumstances:</p>
         <ul>
-          <li>
-            <strong>The specific barbershop you book with</strong> — they receive your name, phone number,
-            and booking details. This is necessary to provide the service.
-          </li>
-          <li>
-            <strong>Supabase (EU-based)</strong> — our database and backend infrastructure provider,
-            operating under GDPR-compliant data processing agreements.
-          </li>
-          <li>
-            <strong>Meta / WhatsApp Business API</strong> — used to send and receive messages.
-            Subject to Meta's own privacy policies.
-          </li>
+          <li><strong>The specific barbershop you book with</strong> — they receive your name, phone number, and booking details. This is necessary to provide the service.</li>
+          <li><strong>Supabase (EU-based)</strong> — our database and backend infrastructure provider, operating under GDPR-compliant data processing agreements.</li>
+          <li><strong>Meta / WhatsApp Business API</strong> — used to send and receive messages. Subject to Meta's own privacy policies.</li>
         </ul>
         <p>We do not sell, rent, or share your data with any other third parties, advertisers, or data brokers.</p>
       </div>
 
       <div class="legal-section">
         <h2>5. Data Retention</h2>
-        <p>
-          We retain booking and account data for <strong>12 months</strong> after your last activity on the platform.
-          After this period, data is automatically deleted or anonymized.
-        </p>
-        <p>
-          WhatsApp conversation state data (in-progress booking flows) is automatically deleted
-          <strong>30 minutes</strong> after the conversation becomes inactive.
-        </p>
+        <p>We retain booking and account data for <strong>12 months</strong> after your last activity on the platform. After this period, data is automatically deleted or anonymized.</p>
+        <p>WhatsApp conversation state data (in-progress booking flows) is automatically deleted <strong>30 minutes</strong> after the conversation becomes inactive.</p>
         <p>You may request earlier deletion at any time by contacting support@kursi.now.</p>
       </div>
 
@@ -144,10 +129,7 @@
           <li>Restricted access controls — only authorized personnel can access personal data</li>
           <li>Regular security reviews and monitoring</li>
         </ul>
-        <p>
-          While we take reasonable precautions, no system is 100% secure. In the event of a data breach
-          that affects your rights, we will notify you promptly.
-        </p>
+        <p>While we take reasonable precautions, no system is 100% secure. In the event of a data breach that affects your rights, we will notify you promptly.</p>
       </div>
 
       <div class="legal-section">
@@ -160,28 +142,17 @@
           <li><strong>Opt-out</strong> — stop receiving automated messages by sending "STOP" to our WhatsApp number</li>
           <li><strong>Portability</strong> — request your data in a machine-readable format</li>
         </ul>
-        <p>
-          To exercise any of these rights, contact us at <a href="mailto:support@kursi.now">support@kursi.now</a>.
-          We will respond within 30 days.
-        </p>
+        <p>To exercise any of these rights, contact us at <a href="mailto:support@kursi.now">support@kursi.now</a>. We will respond within 30 days.</p>
       </div>
 
       <div class="legal-section">
         <h2>8. Children's Privacy</h2>
-        <p>
-          Kursi is not intended for individuals under the age of 18. We do not knowingly collect
-          personal information from minors. If you believe a minor has provided us with personal data,
-          please contact us and we will delete it promptly.
-        </p>
+        <p>Kursi is not intended for individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe a minor has provided us with personal data, please contact us and we will delete it promptly.</p>
       </div>
 
       <div class="legal-section">
         <h2>9. Changes to This Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time. When we do, we will update the
-          "Effective Date" at the top of this page. We encourage you to review this page periodically.
-          Continued use of the service after changes constitutes your acceptance of the updated policy.
-        </p>
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Effective Date" at the top of this page. We encourage you to review this page periodically. Continued use of the service after changes constitutes your acceptance of the updated policy.</p>
       </div>
 
       <div class="legal-section">
@@ -196,25 +167,13 @@
 
     </div>
 
-    <!-- ===== DIVIDER ===== -->
-    <div class="legal-content" style="padding-top: 0; padding-bottom: 0;">
-      <hr class="lang-divider" data-label="النسخة العربية / Arabic Version">
-    </div>
-
     <!-- ===== ARABIC VERSION ===== -->
-    <div class="legal-content" id="arabic" dir="rtl" lang="ar">
+    <div class="legal-content" data-lang="ar" lang="ar" dir="rtl">
 
       <div class="legal-section">
         <h2>١. المقدمة</h2>
-        <p>
-          كرسي ("نحن" أو "منصتنا") تشغّل نظام حجز مواعيد عبر واتساب لصالونات الحلاقة،
-          إلى جانب لوحة تحكم للإدارة وتطبيق اكتشاف العملاء. تشرح سياسة الخصوصية هذه
-          كيفية جمع المعلومات المتعلقة بك واستخدامها ومشاركتها وحمايتها عند استخدامك لخدماتنا.
-        </p>
-        <p>
-          تسري هذه السياسة اعتباراً من <strong>١٢ مايو ٢٠٢٦</strong>. باستخدامك لكرسي، فإنك توافق على جمع
-          المعلومات واستخدامها وفقاً لهذه السياسة.
-        </p>
+        <p>كرسي ("نحن" أو "منصتنا") تشغّل نظام حجز مواعيد عبر واتساب لصالونات الحلاقة، إلى جانب لوحة تحكم للإدارة وتطبيق اكتشاف العملاء. تشرح سياسة الخصوصية هذه كيفية جمع المعلومات المتعلقة بك واستخدامها ومشاركتها وحمايتها عند استخدامك لخدماتنا.</p>
+        <p>تسري هذه السياسة اعتباراً من <strong>١٢ مايو ٢٠٢٦</strong>. باستخدامك لكرسي، فإنك توافق على جمع المعلومات واستخدامها وفقاً لهذه السياسة.</p>
       </div>
 
       <div class="legal-section">
@@ -248,42 +207,24 @@
           <li>الرد على طلبات الدعم الفني</li>
           <li>إنشاء تحليلات مجمعة مجهولة الهوية (مثل إجمالي الحجوزات لكل منطقة)</li>
         </ul>
-        <p>
-          <strong>لا نقوم بـ:</strong> بيع بياناتك الشخصية، أو استخدامها للإعلانات المستهدفة،
-          أو مشاركتها مع شركات التسويق، أو معالجتها لأي غرض يتجاوز تقديم الخدمة.
-        </p>
+        <p><strong>لا نقوم بـ:</strong> بيع بياناتك الشخصية، أو استخدامها للإعلانات المستهدفة، أو مشاركتها مع شركات التسويق، أو معالجتها لأي غرض يتجاوز تقديم الخدمة.</p>
       </div>
 
       <div class="legal-section">
         <h2>٤. مشاركة البيانات</h2>
         <p>لا تُشارَك بياناتك إلا في الحالات التالية:</p>
         <ul>
-          <li>
-            <strong>الصالون المحدد الذي تحجز معه</strong> — يتلقى اسمك ورقم هاتفك وتفاصيل حجزك.
-            هذا ضروري لتقديم الخدمة.
-          </li>
-          <li>
-            <strong>Supabase (خوادم أوروبية)</strong> — مزود البنية التحتية لقاعدة البيانات والخلفية التقنية،
-            يعمل وفق اتفاقيات معالجة البيانات المتوافقة مع اللائحة العامة لحماية البيانات (GDPR).
-          </li>
-          <li>
-            <strong>Meta / واجهة برمجة تطبيقات واتساب للأعمال</strong> — تُستخدم لإرسال الرسائل واستقبالها.
-            خاضعة لسياسات الخصوصية الخاصة بشركة Meta.
-          </li>
+          <li><strong>الصالون المحدد الذي تحجز معه</strong> — يتلقى اسمك ورقم هاتفك وتفاصيل حجزك. هذا ضروري لتقديم الخدمة.</li>
+          <li><strong>Supabase (خوادم أوروبية)</strong> — مزود البنية التحتية لقاعدة البيانات، يعمل وفق اتفاقيات معالجة البيانات المتوافقة مع اللائحة العامة لحماية البيانات (GDPR).</li>
+          <li><strong>Meta / واجهة برمجة تطبيقات واتساب للأعمال</strong> — تُستخدم لإرسال الرسائل واستقبالها. خاضعة لسياسات الخصوصية الخاصة بشركة Meta.</li>
         </ul>
         <p>لا نبيع بياناتك ولا نؤجرها ولا نشاركها مع أي أطراف ثالثة أو معلنين أو وسطاء بيانات آخرين.</p>
       </div>
 
       <div class="legal-section">
         <h2>٥. الاحتفاظ بالبيانات</h2>
-        <p>
-          نحتفظ ببيانات الحجز والحساب لمدة <strong>١٢ شهراً</strong> بعد آخر نشاط لك على المنصة.
-          بعد هذه الفترة، تُحذف البيانات تلقائياً أو تُجهَّل هويتها.
-        </p>
-        <p>
-          تُحذف بيانات حالة محادثة واتساب (عمليات الحجز الجارية) تلقائياً بعد
-          <strong>٣٠ دقيقة</strong> من توقف المحادثة.
-        </p>
+        <p>نحتفظ ببيانات الحجز والحساب لمدة <strong>١٢ شهراً</strong> بعد آخر نشاط لك على المنصة. بعد هذه الفترة، تُحذف البيانات تلقائياً أو تُجهَّل هويتها.</p>
+        <p>تُحذف بيانات حالة محادثة واتساب تلقائياً بعد <strong>٣٠ دقيقة</strong> من توقف المحادثة.</p>
         <p>يمكنك طلب الحذف المبكر في أي وقت عبر التواصل مع support@kursi.now.</p>
       </div>
 
@@ -296,10 +237,7 @@
           <li>ضوابط وصول مقيدة — الموظفون المخولون فقط يمكنهم الوصول إلى البيانات الشخصية</li>
           <li>مراجعات أمنية دورية ومراقبة مستمرة</li>
         </ul>
-        <p>
-          بينما نتخذ احتياطات معقولة، لا يوجد نظام آمن بنسبة ١٠٠٪. في حال وقوع اختراق يؤثر على حقوقك،
-          سنخطرك في أقرب وقت ممكن.
-        </p>
+        <p>بينما نتخذ احتياطات معقولة، لا يوجد نظام آمن بنسبة ١٠٠٪. في حال وقوع اختراق يؤثر على حقوقك، سنخطرك في أقرب وقت ممكن.</p>
       </div>
 
       <div class="legal-section">
@@ -312,28 +250,17 @@
           <li><strong>إلغاء الاشتراك</strong> — إيقاف الرسائل التلقائية بإرسال "STOP" لرقم واتساب الخاص بنا</li>
           <li><strong>قابلية النقل</strong> — طلب بياناتك بتنسيق قابل للقراءة آلياً</li>
         </ul>
-        <p>
-          لممارسة أي من هذه الحقوق، تواصل معنا على <a href="mailto:support@kursi.now">support@kursi.now</a>.
-          سنرد خلال ٣٠ يوماً.
-        </p>
+        <p>لممارسة أي من هذه الحقوق، تواصل معنا على <a href="mailto:support@kursi.now">support@kursi.now</a>. سنرد خلال ٣٠ يوماً.</p>
       </div>
 
       <div class="legal-section">
         <h2>٨. خصوصية الأطفال</h2>
-        <p>
-          كرسي غير مخصص للأفراد الذين تقل أعمارهم عن ١٨ عاماً. لا نجمع عن قصد
-          معلومات شخصية من القاصرين. إذا كنت تعتقد أن قاصراً قدّم لنا بيانات شخصية،
-          يُرجى التواصل معنا وسنحذفها فوراً.
-        </p>
+        <p>كرسي غير مخصص للأفراد الذين تقل أعمارهم عن ١٨ عاماً. لا نجمع عن قصد معلومات شخصية من القاصرين. إذا كنت تعتقد أن قاصراً قدّم لنا بيانات شخصية، يُرجى التواصل معنا وسنحذفها فوراً.</p>
       </div>
 
       <div class="legal-section">
         <h2>٩. التغييرات على هذه السياسة</h2>
-        <p>
-          قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. عند القيام بذلك، سنحدّث
-          "تاريخ السريان" في أعلى هذه الصفحة. نشجعك على مراجعة هذه الصفحة بصفة دورية.
-          استمرار استخدامك للخدمة بعد التغييرات يُعدّ قبولاً للسياسة المحدّثة.
-        </p>
+        <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. عند القيام بذلك، سنحدّث "تاريخ السريان" في أعلى هذه الصفحة. نشجعك على مراجعة هذه الصفحة بصفة دورية. استمرار استخدامك للخدمة بعد التغييرات يُعدّ قبولاً للسياسة المحدّثة.</p>
       </div>
 
       <div class="legal-section">
@@ -355,30 +282,30 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo">
-            <span class="logo-ar">كرسي</span>
-            <span class="logo-en">Kursi</span>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
           </a>
-          <p>نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</p>
+          <p><span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span><span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span></p>
         </div>
         <div>
-          <h4>روابط سريعة</h4>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
           <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="pricing.html">الأسعار</a></li>
-            <li><a href="privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
           </ul>
         </div>
         <div>
-          <h4>تواصل معنا</h4>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
           <ul>
             <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
             <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
           </ul>
         </div>
         <div>
-          <h4>تابعنا</h4>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
           <div class="social-links">
             <a href="#" class="social-link">📸 Instagram</a>
             <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -386,12 +313,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 كرسي — جميع الحقوق محفوظة</p>
-        <p>صنع بـ ❤️ في عمّان، الأردن</p>
+        <p><span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span><span data-lang="en">© 2026 Kursi — All rights reserved</span></p>
+        <p><span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span><span data-lang="en">Made with ❤️ in Amman, Jordan</span></p>
       </div>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
   <script src="js/main.js"></script>
 </body>
 </html>
