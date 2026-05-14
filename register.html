@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سجّل صالونك — كرسي</title>
+  <meta name="description" content="سجّل صالون الحلاقة في كرسي — ابدأ مجاناً في دقائق">
+  <meta property="og:title" content="سجّل صالونك — كرسي">
+  <meta property="og:url" content="https://kursi.now/register.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <link rel="canonical" href="https://kursi.now/register.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>(function(){var l=new URLSearchParams(window.location.search).get('lang')||'ar';var h=document.documentElement;h.lang=l;h.dir=l==='ar'?'rtl':'ltr';h.setAttribute('data-lang-ready',l);}());</script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Register page layout ─────────────────────────────────── */
+    .register-main { background: var(--gray-light); min-height: calc(100vh - 70px); padding: 1.5rem 0 2rem; }
+    .register-container { max-width: 580px; margin: 0 auto; padding: 0 1rem; }
+
+    /* ── Progress bar ─────────────────────────────────────────── */
+    .reg-progress { padding: 0.5rem 0 1.5rem; }
+    .prog-track { display: flex; align-items: flex-start; justify-content: center; }
+    .prog-step { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; flex-shrink: 0; }
+    .prog-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2.5px solid var(--border); background: #fff;
+      transition: all 0.3s;
+    }
+    .prog-step.active .prog-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px rgba(127,119,221,0.18); }
+    .prog-step.done   .prog-dot { background: var(--accent); border-color: var(--accent); }
+    .prog-line { flex: 1; height: 2px; background: var(--border); min-width: 52px; margin-top: 7px; transition: background 0.3s; }
+    .prog-line.done { background: var(--accent); }
+    .prog-label { font-size: 0.68rem; color: var(--text-muted); white-space: nowrap; }
+    .prog-step.active .prog-label { color: var(--accent); font-weight: 700; }
+    .prog-step.done   .prog-label { color: var(--accent); }
+
+    /* ── Step panels ─────────────────────────────────────────── */
+    .reg-card { background: #fff; border-radius: 16px; padding: 1.75rem 1.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+    @keyframes enterRight { from { transform: translateX(32px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes enterLeft  { from { transform: translateX(-32px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .step-panel.anim-right { animation: enterRight 0.32s ease; }
+    .step-panel.anim-left  { animation: enterLeft  0.32s ease; }
+
+    .step-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem; color: var(--primary); }
+    .step-subtitle { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem; }
+
+    /* ── Form fields ─────────────────────────────────────────── */
+    .reg-field { margin-bottom: 1.15rem; }
+    .reg-field label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; color: var(--text); }
+    .req { color: var(--accent); margin-inline-start: 2px; }
+    .opt { color: var(--text-muted); font-weight: 400; font-size: 0.8rem; }
+    .reg-field input,
+    .reg-field select {
+      width: 100%; min-height: 52px; padding: 0 1rem;
+      border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 16px; font-family: var(--font);
+      color: var(--text); background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .reg-field input:focus,
+    .reg-field select:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(127,119,221,0.14);
+    }
+    .reg-field input.err,
+    .reg-field select.err { border-color: #dc3545; }
+    .reg-field input[type="tel"] { direction: ltr; text-align: start; }
+    .field-error { color: #dc3545; font-size: 0.8rem; margin-top: 0.3rem; display: none; }
+
+    /* Select arrow */
+    .reg-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%236c757d' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 12px center;
+      padding-left: 40px;
+    }
+    [dir="ltr"] .reg-field select { background-position: right 12px center; padding-left: 1rem; padding-right: 40px; }
+
+    /* Stepper for barber count */
+    .stepper { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 160px; }
+    .stepper-btn { width: 52px; height: 52px; font-size: 1.5rem; font-weight: 300; background: var(--gray-light); color: var(--text); border: none; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+    .stepper-btn:hover { background: var(--accent-light); color: var(--accent); }
+    .stepper input { flex: 1; height: 52px; text-align: center; border: none; border-inline: 1.5px solid var(--border); font-size: 1.15rem; font-weight: 700; min-width: 0; padding: 0; box-shadow: none !important; }
+
+    /* Services checkboxes */
+    .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.5rem; }
+    .cb-item { display: flex; align-items: center; gap: 0.55rem; min-height: 48px; padding: 0.5rem 0.85rem; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; font-size: 0.92rem; transition: all 0.2s; user-select: none; }
+    .cb-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
+    .cb-item.checked { border-color: var(--accent); background: var(--accent-light); color: var(--accent); font-weight: 600; }
+
+    /* ── Plan cards (step 2) ────────────────────────────────────── */
+    .plan-stack { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+    .plan-card { background: #fff; border: 2px solid var(--border); border-radius: 14px; padding: 1.35rem 1.25rem; position: relative; transition: box-shadow 0.2s; }
+    .plan-card.featured { border-color: var(--accent); box-shadow: 0 4px 20px rgba(127,119,221,0.2); }
+    .plan-badge {
+      position: absolute; top: -13px;
+      right: 50%; transform: translateX(50%);
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff; padding: 0.25rem 1rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+      white-space: nowrap; box-shadow: 0 2px 8px rgba(127,119,221,0.35);
+    }
+    [dir="ltr"] .plan-badge { right: auto; left: 50%; transform: translateX(-50%); }
+    .plan-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.75rem; }
+    .plan-name { font-size: 1.15rem; font-weight: 800; color: var(--primary); }
+    .plan-price { font-size: 1.25rem; font-weight: 800; color: var(--accent); }
+    .plan-price small { font-size: 0.8rem; font-weight: 400; color: var(--text-muted); }
+    .plan-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.85rem; }
+    .plan-features { list-style: none; margin-bottom: 1.1rem; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 0.55rem; padding: 0.3rem 0; font-size: 0.88rem; line-height: 1.4; }
+    .plan-features .ck { color: var(--cta); font-weight: 700; flex-shrink: 0; }
+    .plan-features .cx { color: #ccc; flex-shrink: 0; }
+    .plan-btn { width: 100%; min-height: 52px; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; font-family: var(--font); transition: var(--transition); }
+    .plan-btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+    .plan-btn-outline:hover { background: var(--accent); color: #fff; }
+    .plan-btn-cta { background: var(--cta); color: #fff; border: none; }
+    .plan-btn-cta:hover { background: var(--cta-dark); }
+
+    /* ── OTP section (step 3) ─────────────────────────────────── */
+    .step3-status { text-align: center; padding: 1.5rem 0; }
+    .loading-ring { width: 48px; height: 48px; border: 4px solid var(--accent-light); border-top-color: var(--accent); border-radius: 50%; animation: reg-spin 0.8s linear infinite; margin: 0 auto 1rem; }
+    @keyframes reg-spin { to { transform: rotate(360deg); } }
+    .err-box { color: #dc3545; background: #fff5f5; border: 1px solid #fcc; border-radius: 10px; padding: 1rem 1.25rem; text-align: center; }
+
+    .otp-section { text-align: center; }
+    .otp-phone-icon { font-size: 2.75rem; animation: otp-bounce 1.8s ease-in-out infinite; display: inline-block; margin-bottom: 0.75rem; }
+    @keyframes otp-bounce { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    .otp-sent-msg { font-size: 1rem; color: var(--text); margin-bottom: 0.25rem; }
+    .otp-masked { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; direction: ltr; display: block; }
+
+    .otp-boxes { display: flex; gap: 0.55rem; justify-content: center; direction: ltr; }
+    .otp-input {
+      width: 48px; height: 56px; text-align: center; font-size: 1.5rem; font-weight: 700;
+      border: 2px solid var(--border); border-radius: 10px; background: #fff;
+      color: var(--text); transition: border-color 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .otp-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(127,119,221,0.15); outline: none; }
+    .otp-input.filled { border-color: var(--accent); }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-7px)} 80%{transform:translateX(7px)} }
+    .otp-boxes.shake { animation: shake 0.48s ease; }
+
+    .err-otp { color: #dc3545; font-size: 0.85rem; margin-top: 0.75rem; display: none; }
+    .resend-area { margin-top: 1.25rem; }
+    .resend-btn { background: none; border: none; color: var(--text-muted); font-size: 0.88rem; cursor: pointer; font-family: var(--font); padding: 0.5rem; transition: color 0.2s; }
+    .resend-btn:not([disabled]):hover { color: var(--accent); text-decoration: underline; }
+    .resend-btn[disabled] { cursor: default; opacity: 0.7; }
+
+    /* ── Success (step 4) ─────────────────────────────────────── */
+    .success-wrap { text-align: center; padding: 1rem 0 0.5rem; }
+    .checkmark-svg { width: 88px; height: 88px; display: block; margin: 0 auto 1.25rem; }
+    .checkmark-circle { stroke: var(--cta); stroke-width: 3; fill: none; stroke-dasharray: 151; stroke-dashoffset: 151; animation: draw-circle 0.65s cubic-bezier(0.65,0,0.45,1) forwards; }
+    .checkmark-check { stroke: var(--cta); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 48; stroke-dashoffset: 48; animation: draw-check 0.35s cubic-bezier(0.65,0,0.45,1) 0.6s forwards; }
+    @keyframes draw-circle { to { stroke-dashoffset: 0; } }
+    @keyframes draw-check  { to { stroke-dashoffset: 0; } }
+    .success-title { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; }
+    .success-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+    .success-plan-box { background: var(--gray-light); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.92rem; color: var(--text); }
+    .upgrade-card { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; border-radius: 14px; padding: 1.25rem; margin-bottom: 1rem; text-align: center; }
+    .upgrade-card h4 { color: #fff; font-size: 1rem; margin-bottom: 0.3rem; }
+    .upgrade-card p { color: rgba(255,255,255,0.85); font-size: 0.85rem; margin-bottom: 0.9rem; }
+    .upgrade-btn { background: #fff; color: var(--accent); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: var(--transition); font-family: var(--font); }
+    .upgrade-btn:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+    .share-card { background: var(--cta); color: #fff; border-radius: 14px; padding: 1.25rem; text-align: center; }
+    .share-card h4 { color: #fff; font-size: 1rem; margin-bottom: 0.3rem; }
+    .share-card p { color: rgba(255,255,255,0.88); font-size: 0.85rem; margin-bottom: 0.9rem; }
+    .share-btn { background: #fff; color: var(--cta); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: var(--transition); font-family: var(--font); }
+    .share-btn:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+
+    /* ── Sticky bottom bar ────────────────────────────────────── */
+    .reg-sticky-bar { position: fixed; bottom: 0; inset-inline: 0; background: #fff; border-top: 1px solid var(--border); padding: 0.7rem 1rem; z-index: 200; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); }
+    .reg-main-btn { width: 100%; min-height: 56px; font-size: 1.05rem; animation: none !important; border-radius: 12px; }
+    @media (min-width: 769px) {
+      .reg-sticky-bar { position: static; border: none; box-shadow: none; padding: 1.5rem 0 0; background: transparent; }
+      .reg-main-btn { max-width: 320px; display: block; }
+    }
+    .reg-steps { padding-bottom: 90px; }
+    @media (min-width: 769px) { .reg-steps { padding-bottom: 0; } }
+
+    /* Spinner inside button */
+    .btn-loading { position: relative; color: transparent !important; pointer-events: none; }
+    .btn-loading::after { content: ''; position: absolute; width: 22px; height: 22px; border: 3px solid rgba(255,255,255,0.35); border-top-color: #fff; border-radius: 50%; animation: reg-spin 0.65s linear infinite; }
+
+    /* Back link */
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--text-muted); font-size: 0.9rem; margin-top: 1.25rem; text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+
+    /* Section divider inside card */
+    .reg-divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
+        </a>
+        <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html" class="nav-link"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="about.html" class="nav-link"><span data-lang="ar">من نحن</span><span data-lang="en">About</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span></a></li>
+            <li><a href="register.html" class="nav-link nav-register-btn"><span data-lang="ar">سجّل صالونك</span><span data-lang="en">Register</span></a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="register.html" class="btn-nav-cta"><span data-lang="ar">سجّل صالونك</span><span data-lang="en">Register</span></a>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+          <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="register-main">
+      <div class="register-container">
+
+        <!-- Progress bar -->
+        <div class="reg-progress" role="progressbar" aria-label="خطوات التسجيل" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+          <div class="prog-track">
+            <div class="prog-step active" data-step="1">
+              <div class="prog-dot"></div>
+              <span class="prog-label">المعلومات</span>
+            </div>
+            <div class="prog-line"></div>
+            <div class="prog-step" data-step="2">
+              <div class="prog-dot"></div>
+              <span class="prog-label">الباقة</span>
+            </div>
+            <div class="prog-line"></div>
+            <div class="prog-step" data-step="3">
+              <div class="prog-dot"></div>
+              <span class="prog-label">التحقق</span>
+            </div>
+            <div class="prog-line"></div>
+            <div class="prog-step" data-step="4">
+              <div class="prog-dot"></div>
+              <span class="prog-label">الإتمام</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Steps -->
+        <div class="reg-steps">
+
+          <!-- ══════════ STEP 1: SHOP INFO ══════════ -->
+          <div class="step-panel active" id="step-1">
+            <div class="reg-card">
+              <h2 class="step-title">معلومات الصالون</h2>
+              <p class="step-subtitle">الخطوة ١ من ٤</p>
+
+              <div class="reg-field">
+                <label for="shop-name">اسم الصالون <span class="req">*</span></label>
+                <input type="text" id="shop-name" placeholder='مثال: Crown Barbers' autocomplete="organization">
+                <div class="field-error" id="err-shop-name"></div>
+              </div>
+
+              <div class="reg-field">
+                <label for="owner-name">اسم المالك <span class="req">*</span></label>
+                <input type="text" id="owner-name" placeholder="الاسم الكامل" autocomplete="name">
+                <div class="field-error" id="err-owner-name"></div>
+              </div>
+
+              <div class="reg-field">
+                <label for="whatsapp">رقم الواتساب <span class="req">*</span></label>
+                <input type="tel" id="whatsapp" placeholder="07XXXXXXXX" inputmode="numeric" maxlength="10" autocomplete="tel">
+                <div class="field-error" id="err-whatsapp"></div>
+              </div>
+
+              <div class="reg-field">
+                <label for="city">المدينة <span class="req">*</span></label>
+                <select id="city">
+                  <option value="">اختر المدينة...</option>
+                  <option value="عمّان">عمّان</option>
+                  <option value="إربد">إربد</option>
+                  <option value="الزرقاء">الزرقاء</option>
+                  <option value="العقبة">العقبة</option>
+                  <option value="السلط">السلط</option>
+                  <option value="مادبا">مادبا</option>
+                  <option value="الكرك">الكرك</option>
+                  <option value="أخرى">أخرى</option>
+                </select>
+                <div class="field-error" id="err-city"></div>
+              </div>
+
+              <div class="reg-field">
+                <label for="neighborhood">المنطقة / الحي <span class="opt">(اختياري)</span></label>
+                <input type="text" id="neighborhood" placeholder="مثال: الصويفية، عبدون">
+              </div>
+
+              <div class="reg-field">
+                <label>عدد الحلاقين <span class="req">*</span></label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" id="barber-minus" aria-label="تقليل">−</button>
+                  <input type="number" id="barber-count" value="1" min="1" max="20" readonly>
+                  <button type="button" class="stepper-btn" id="barber-plus" aria-label="زيادة">+</button>
+                </div>
+              </div>
+
+              <div class="reg-field">
+                <label>الخدمات المقدمة <span class="req">*</span></label>
+                <div class="checkbox-grid" id="services-grid">
+                  <label class="cb-item"><input type="checkbox" name="svc" value="قص شعر"> قص شعر</label>
+                  <label class="cb-item"><input type="checkbox" name="svc" value="فيد"> فيد</label>
+                  <label class="cb-item"><input type="checkbox" name="svc" value="لحية"> لحية</label>
+                  <label class="cb-item"><input type="checkbox" name="svc" value="حلاقة كاملة"> حلاقة كاملة</label>
+                  <label class="cb-item"><input type="checkbox" name="svc" value="صبغة"> صبغة</label>
+                  <label class="cb-item"><input type="checkbox" name="svc" value="علاج شعر"> علاج شعر</label>
+                  <label class="cb-item" style="grid-column:1/-1;"><input type="checkbox" name="svc" value="أخرى"> أخرى</label>
+                </div>
+                <div class="field-error" id="err-services"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /STEP 1 -->
+
+          <!-- ══════════ STEP 2: PLAN ══════════ -->
+          <div class="step-panel" id="step-2">
+            <div class="reg-card">
+              <h2 class="step-title">اختر باقتك</h2>
+              <p class="step-subtitle">يمكنك الترقية أو التغيير في أي وقت</p>
+
+              <div class="plan-stack">
+
+                <!-- Starter -->
+                <div class="plan-card">
+                  <div class="plan-header">
+                    <span class="plan-name">Starter</span>
+                    <span class="plan-price">0 <small>دينار / شهرياً</small></span>
+                  </div>
+                  <ul class="plan-features">
+                    <li><span class="ck">✓</span> بوت واتساب (50 حجز/شهر)</li>
+                    <li><span class="ck">✓</span> تقويم مواعيد بسيط</li>
+                    <li><span class="ck">✓</span> ظهور في تطبيق العملاء</li>
+                    <li><span class="ck">✓</span> حلاق واحد فقط</li>
+                    <li><span class="cx">✗</span> بدون تذكيرات تلقائية</li>
+                    <li><span class="cx">✗</span> بدون تقارير</li>
+                  </ul>
+                  <button class="plan-btn plan-btn-outline" onclick="selectPlan('starter')">ابدأ مجاناً</button>
+                </div>
+
+                <!-- Pro (featured) -->
+                <div class="plan-card featured">
+                  <span class="plan-badge">⭐ الأكثر طلباً</span>
+                  <div class="plan-header">
+                    <span class="plan-name">Pro</span>
+                    <span class="plan-price">25 <small>دينار / شهرياً</small></span>
+                  </div>
+                  <p class="plan-sub">للصالون كامل — بدون رسوم إضافية</p>
+                  <ul class="plan-features">
+                    <li><span class="ck">✓</span> بوت واتساب غير محدود</li>
+                    <li><span class="ck">✓</span> تذكيرات تلقائية عبر واتساب</li>
+                    <li><span class="ck">✓</span> إدارة حتى 5 حلاقين</li>
+                    <li><span class="ck">✓</span> تقارير الإيرادات والمواعيد</li>
+                    <li><span class="ck">✓</span> سجل العملاء والملاحظات</li>
+                    <li><span class="ck">✓</span> تتبع مدفوعات CliQ</li>
+                    <li><span class="ck">✓</span> نظام طابور الانتظار</li>
+                    <li><span class="ck">✓</span> دعم فني أولوية عبر واتساب</li>
+                  </ul>
+                  <button class="plan-btn plan-btn-cta" onclick="selectPlan('pro')">اختر Pro</button>
+                </div>
+
+                <!-- Growth -->
+                <div class="plan-card">
+                  <div class="plan-header">
+                    <span class="plan-name">Growth</span>
+                    <span class="plan-price">35 <small>دينار / شهرياً</small></span>
+                  </div>
+                  <ul class="plan-features">
+                    <li><span class="ck">✓</span> كل مميزات Pro</li>
+                    <li><span class="ck">✓</span> عدد حلاقين غير محدود</li>
+                    <li><span class="ck">✓</span> برنامج ولاء (نقاط ومكافآت)</li>
+                    <li><span class="ck">✓</span> حملات تسويقية عبر واتساب</li>
+                    <li><span class="ck">✓</span> رسائل إعادة تفاعل تلقائية</li>
+                    <li><span class="ck">✓</span> إدارة حتى 3 فروع</li>
+                    <li><span class="ck">✓</span> تقارير متقدمة</li>
+                    <li><span class="ck">✓</span> مدير حساب مخصص</li>
+                  </ul>
+                  <button class="plan-btn plan-btn-outline" onclick="selectPlan('growth')">اختر Growth</button>
+                </div>
+
+              </div>
+
+              <a href="#" class="back-link" id="back-2">← رجوع</a>
+            </div>
+          </div>
+          <!-- /STEP 2 -->
+
+          <!-- ══════════ STEP 3: OTP ══════════ -->
+          <div class="step-panel" id="step-3">
+            <div class="reg-card">
+              <h2 class="step-title">تحقق من رقم الواتساب</h2>
+
+              <!-- Loading / error status -->
+              <div id="step3-status">
+                <div class="step3-loading" style="text-align:center;padding:2rem 0;">
+                  <div class="loading-ring"></div>
+                  <p style="color:var(--text-muted);font-size:0.95rem;">جاري الحفظ وإرسال رمز التحقق...</p>
+                </div>
+              </div>
+
+              <!-- OTP form (hidden until APIs succeed) -->
+              <div id="otp-section" style="display:none;">
+                <div class="otp-section">
+                  <div class="otp-phone-icon">📱</div>
+                  <p class="otp-sent-msg">أرسلنا رمز تحقق إلى واتساب</p>
+                  <span class="otp-masked" id="otp-masked-num">+962 79 *** **44</span>
+
+                  <div class="otp-boxes" id="otp-boxes">
+                    <input class="otp-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" aria-label="الرقم الأول">
+                    <input class="otp-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="الرقم الثاني">
+                    <input class="otp-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="الرقم الثالث">
+                    <input class="otp-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="الرقم الرابع">
+                    <input class="otp-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="الرقم الخامس">
+                    <input class="otp-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="الرقم السادس">
+                  </div>
+
+                  <div class="err-otp" id="err-otp" role="alert"></div>
+
+                  <div class="resend-area">
+                    <button class="resend-btn" id="resend-btn" disabled>
+                      أعد الإرسال خلال <span id="resend-countdown">60</span> ثانية
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="reg-divider">
+              <a href="#" class="back-link" id="back-3">← رجوع</a>
+            </div>
+          </div>
+          <!-- /STEP 3 -->
+
+          <!-- ══════════ STEP 4: SUCCESS ══════════ -->
+          <div class="step-panel" id="step-4">
+            <div class="reg-card">
+              <div class="success-wrap">
+
+                <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle class="checkmark-circle" cx="26" cy="26" r="24"/>
+                  <path class="checkmark-check" d="M14 27l8 8 16-16"/>
+                </svg>
+
+                <h2 class="success-title">تم التسجيل بنجاح! 🎉</h2>
+                <p class="success-sub">مرحباً <strong id="s4-owner"></strong>!</p>
+                <p class="success-sub" style="margin-top:-0.5rem;">تم تسجيل <strong id="s4-shop"></strong> في كرسي</p>
+
+                <!-- Starter-specific content -->
+                <div id="starter-content" style="display:none;">
+                  <div class="success-plan-box">
+                    <p>🟢 <strong>صالونك الآن على الباقة المجانية</strong></p>
+                    <p style="margin-top:0.4rem;color:var(--text-muted);">البوت جاهز — عملاؤك يقدرون يحجزون الآن عبر واتساب</p>
+                  </div>
+                  <div class="upgrade-card">
+                    <h4>ترقية إلى Pro — 25 دينار/شهر</h4>
+                    <p>احصل على تذكيرات تلقائية وتقارير وأكثر</p>
+                    <button class="upgrade-btn" id="upgrade-btn">ترقية الآن →</button>
+                  </div>
+                </div>
+
+                <!-- Pro / Growth content -->
+                <div id="paid-content" style="display:none;">
+                  <div class="success-plan-box">
+                    <p>⏱ <strong>سنتواصل معك خلال 24 ساعة</strong></p>
+                    <p style="margin-top:0.4rem;color:var(--text-muted);">لترتيب الدفع وتفعيل كامل المميزات عبر واتساب</p>
+                  </div>
+                </div>
+
+                <!-- Share — all plans -->
+                <div class="share-card" style="margin-top:1.25rem;">
+                  <h4>📣 شارك كرسي مع حلاق آخر</h4>
+                  <p>واحصل على شهر مجاناً لكل صالون يسجّل عبر رابطك!</p>
+                  <button class="share-btn" id="share-btn">💬 شارك عبر واتساب</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- /STEP 4 -->
+
+        </div>
+        <!-- /reg-steps -->
+
+        <!-- Sticky primary action bar -->
+        <div class="reg-sticky-bar" id="sticky-bar">
+          <button class="btn btn-cta reg-main-btn" id="main-btn">التالي ←</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
+          </a>
+          <p><span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span><span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span></p>
+        </div>
+        <div>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
+          <ul>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
+          <ul>
+            <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
+            <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📸 Instagram</a>
+            <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span><span data-lang="en">© 2026 Kursi — All rights reserved</span></p>
+        <p><span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span><span data-lang="en">Made with ❤️ in Amman, Jordan</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
+
+  <script>
+  /* ── Register page state ──────────────────────────────────── */
+  const reg = {
+    step: 1,
+    shopName: '', ownerName: '', whatsapp: '', whatsappFmt: '',
+    city: '', neighborhood: '', barberCount: 1, services: [], plan: '',
+    registrationId: null, resendTimer: null, resendSecs: 60
+  };
+
+  const SUPABASE_URL = 'https://cjdauvshxkwjxiodvlxf.supabase.co/rest/v1/registrations';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNqZGF1dnNoeGt3anhpb2R2bHhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NDQ3MjgsImV4cCI6MjA5NDAyMDcyOH0.g7cYeBektyiEKXTGLxshTbDPdF-HNOWEycXDPsU4IBA';
+  const BOT_BASE = 'https://kursi-bot-production.up.railway.app/api/registration';
+
+  /* ── Utilities ───────────────────────────────────────────── */
+  function convertWA(raw) {
+    const d = raw.replace(/\D/g, '');
+    return d.startsWith('0') ? '962' + d.slice(1) : d;
+  }
+  function maskWA(fmt) {
+    const local = fmt.slice(3); // e.g. 795070844
+    return '+962 ' + local.slice(0, 2) + ' *** **' + local.slice(-2);
+  }
+
+  /* ── Progress bar ─────────────────────────────────────────── */
+  function updateProgress(step) {
+    document.querySelectorAll('.prog-step').forEach((el, i) => {
+      const s = i + 1;
+      el.classList.toggle('done',   s < step);
+      el.classList.toggle('active', s === step);
+    });
+    document.querySelectorAll('.prog-line').forEach((el, i) => {
+      el.classList.toggle('done', i + 1 < step);
+    });
+    const pb = document.querySelector('[role="progressbar"]');
+    if (pb) pb.setAttribute('aria-valuenow', step);
+  }
+
+  /* ── Step navigation ──────────────────────────────────────── */
+  function goToStep(next, dir) {
+    const cur = document.getElementById('step-' + reg.step);
+    const nxt = document.getElementById('step-' + next);
+    cur.classList.remove('active');
+    const anim = dir === 'back' ? 'anim-left' : 'anim-right';
+    nxt.classList.add('active', anim);
+    setTimeout(() => nxt.classList.remove(anim), 380);
+    reg.step = next;
+    updateProgress(next);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateStickyBar();
+  }
+
+  function updateStickyBar() {
+    const bar = document.getElementById('sticky-bar');
+    const btn = document.getElementById('main-btn');
+    if (reg.step === 1) {
+      bar.style.display = '';
+      btn.textContent = 'التالي ←';
+      btn.disabled = false;
+      btn.classList.remove('btn-loading');
+    } else if (reg.step === 2) {
+      bar.style.display = 'none';
+    } else if (reg.step === 3) {
+      bar.style.display = '';
+      btn.textContent = 'تحقق ✓';
+      btn.disabled = false;
+      btn.classList.remove('btn-loading');
+    } else {
+      bar.style.display = 'none';
+    }
+  }
+
+  /* ── Step 1: Validation ───────────────────────────────────── */
+  function showErr(id, msg) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+  }
+  function clearErrs() {
+    document.querySelectorAll('.field-error').forEach(e => { e.textContent = ''; e.style.display = 'none'; });
+    document.querySelectorAll('.otp-input').forEach(i => i.classList.remove('err'));
+  }
+  function markInputErr(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('err');
+  }
+
+  function handleNext1() {
+    clearErrs();
+    let ok = true;
+    const sn = document.getElementById('shop-name').value.trim();
+    const on = document.getElementById('owner-name').value.trim();
+    const wa = document.getElementById('whatsapp').value.trim();
+    const cy = document.getElementById('city').value;
+    const svcs = Array.from(document.querySelectorAll('input[name="svc"]:checked')).map(c => c.value);
+
+    if (!sn) { showErr('err-shop-name', 'اسم الصالون مطلوب'); markInputErr('shop-name'); ok = false; }
+    if (!on) { showErr('err-owner-name', 'اسم المالك مطلوب'); markInputErr('owner-name'); ok = false; }
+
+    const waD = wa.replace(/\D/g, '');
+    if (!waD.startsWith('07') || waD.length !== 10) {
+      showErr('err-whatsapp', 'الرقم يجب أن يبدأ بـ 07 ويتكون من 10 أرقام');
+      markInputErr('whatsapp'); ok = false;
+    }
+    if (!cy) { showErr('err-city', 'اختر المدينة'); markInputErr('city'); ok = false; }
+    if (svcs.length === 0) { showErr('err-services', 'اختر خدمة واحدة على الأقل'); ok = false; }
+
+    if (!ok) {
+      // scroll to first error
+      const firstErr = document.querySelector('.field-error[style*="block"]');
+      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    reg.shopName     = sn;
+    reg.ownerName    = on;
+    reg.whatsapp     = waD;
+    reg.whatsappFmt  = convertWA(waD);
+    reg.city         = cy;
+    reg.neighborhood = document.getElementById('neighborhood').value.trim();
+    reg.barberCount  = parseInt(document.getElementById('barber-count').value) || 1;
+    reg.services     = svcs;
+
+    goToStep(2);
+  }
+
+  /* ── Step 2: Plan selection ───────────────────────────────── */
+  function selectPlan(plan) {
+    reg.plan = plan;
+    goToStep(3);
+    initStep3();
+  }
+
+  /* ── Step 3: Supabase + OTP ───────────────────────────────── */
+  async function initStep3() {
+    const status    = document.getElementById('step3-status');
+    const otpSec    = document.getElementById('otp-section');
+    const mainBtn   = document.getElementById('main-btn');
+
+    status.innerHTML = '<div class="step3-loading" style="text-align:center;padding:2rem 0;"><div class="loading-ring"></div><p style="color:var(--text-muted);font-size:0.95rem;">جاري الحفظ وإرسال رمز التحقق...</p></div>';
+    otpSec.style.display = 'none';
+    if (mainBtn) { mainBtn.disabled = true; mainBtn.classList.add('btn-loading'); }
+
+    try {
+      /* 1 — Save to Supabase */
+      const sbRes = await fetch(SUPABASE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({
+          shop_name:        reg.shopName,
+          owner_name:       reg.ownerName,
+          whatsapp_number:  reg.whatsappFmt,
+          city:             reg.city,
+          neighborhood:     reg.neighborhood,
+          barber_count:     reg.barberCount,
+          services:         reg.services.join(','),
+          preferred_plan:   reg.plan
+        })
+      });
+
+      if (sbRes.status === 409) {
+        status.innerHTML = '<div class="err-box">هذا الرقم مسجل مسبقاً — تواصل معنا عبر <a href="mailto:support@kursi.now" style="color:var(--accent);">support@kursi.now</a></div>';
+        if (mainBtn) { mainBtn.disabled = false; mainBtn.classList.remove('btn-loading'); }
+        return;
+      }
+      if (!sbRes.ok) throw new Error('supabase_' + sbRes.status);
+
+      const sbData = await sbRes.json();
+      reg.registrationId = (Array.isArray(sbData) ? sbData[0] : sbData)?.id;
+
+      /* 2 — Send OTP */
+      const otpRes = await fetch(BOT_BASE + '/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ registration_id: reg.registrationId, whatsapp_number: reg.whatsappFmt })
+      });
+      if (!otpRes.ok) throw new Error('otp_send_' + otpRes.status);
+
+      /* Success — show OTP form */
+      status.innerHTML = '';
+      otpSec.style.display = '';
+      document.getElementById('otp-masked-num').textContent = maskWA(reg.whatsappFmt);
+      clearOTPBoxes();
+      document.querySelector('.otp-input')?.focus();
+      startResendTimer();
+      if (mainBtn) { mainBtn.disabled = false; mainBtn.classList.remove('btn-loading'); mainBtn.textContent = 'تحقق ✓'; }
+
+    } catch (err) {
+      console.error(err);
+      const isNet = err.message.includes('Failed to fetch') || err.message.includes('NetworkError');
+      status.innerHTML = '<div class="err-box">' + (isNet ? 'حدث خطأ في الاتصال — تحقق من الإنترنت وحاول مرة أخرى' : 'حدث خطأ، حاول مرة أخرى') + '<br><br><button class="btn btn-outline" onclick="initStep3()" style="font-size:0.9rem;padding:0.6rem 1.25rem;">إعادة المحاولة</button></div>';
+      if (mainBtn) { mainBtn.disabled = false; mainBtn.classList.remove('btn-loading'); }
+    }
+  }
+
+  /* ── Resend countdown ─────────────────────────────────────── */
+  function startResendTimer() {
+    reg.resendSecs = 60;
+    const btn = document.getElementById('resend-btn');
+    const cd  = document.getElementById('resend-countdown');
+    if (!btn || !cd) return;
+    btn.disabled = true;
+    btn.textContent = 'أعد الإرسال خلال 60 ثانية'; // reset text first
+    clearInterval(reg.resendTimer);
+    reg.resendTimer = setInterval(() => {
+      reg.resendSecs--;
+      if (reg.resendSecs <= 0) {
+        clearInterval(reg.resendTimer);
+        btn.disabled = false;
+        btn.textContent = 'أعد إرسال الرمز';
+      } else {
+        btn.innerHTML = 'أعد الإرسال خلال <span id="resend-countdown">' + reg.resendSecs + '</span> ثانية';
+      }
+    }, 1000);
+  }
+
+  async function handleResend() {
+    const btn = document.getElementById('resend-btn');
+    btn.disabled = true;
+    try {
+      await fetch(BOT_BASE + '/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ registration_id: reg.registrationId, whatsapp_number: reg.whatsappFmt })
+      });
+    } catch(_) {}
+    startResendTimer();
+  }
+
+  /* ── OTP verify ───────────────────────────────────────────── */
+  async function handleVerify() {
+    const inputs = document.querySelectorAll('.otp-input');
+    const code = Array.from(inputs).map(i => i.value).join('');
+    const errEl = document.getElementById('err-otp');
+
+    if (code.length !== 6 || !/^\d{6}$/.test(code)) {
+      errEl.textContent = 'أدخل الرمز المكون من 6 أرقام';
+      errEl.style.display = 'block';
+      shakeOTP();
+      return;
+    }
+
+    const btn = document.getElementById('main-btn');
+    btn.disabled = true; btn.classList.add('btn-loading');
+    errEl.style.display = 'none';
+
+    try {
+      const res = await fetch(BOT_BASE + '/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ registration_id: reg.registrationId, otp_code: code })
+      });
+
+      if (res.ok) {
+        clearInterval(reg.resendTimer);
+        goToStep(4);
+        initStep4();
+        return;
+      } else if (res.status === 410) {
+        errEl.textContent = 'انتهت صلاحية الرمز';
+        errEl.style.display = 'block';
+        const rb = document.getElementById('resend-btn');
+        if (rb) { clearInterval(reg.resendTimer); rb.disabled = false; rb.textContent = 'أعد إرسال الرمز'; }
+      } else {
+        shakeOTP();
+        errEl.textContent = 'الرمز غير صحيح، حاول مرة أخرى';
+        errEl.style.display = 'block';
+      }
+    } catch(_) {
+      errEl.textContent = 'حدث خطأ في الاتصال، حاول مرة أخرى';
+      errEl.style.display = 'block';
+    }
+
+    btn.disabled = false; btn.classList.remove('btn-loading');
+  }
+
+  function shakeOTP() {
+    const b = document.getElementById('otp-boxes');
+    b.classList.remove('shake');
+    void b.offsetWidth; // reflow
+    b.classList.add('shake');
+    setTimeout(() => b.classList.remove('shake'), 600);
+  }
+
+  function clearOTPBoxes() {
+    document.querySelectorAll('.otp-input').forEach(i => { i.value = ''; i.classList.remove('filled'); });
+    const e = document.getElementById('err-otp');
+    if (e) { e.textContent = ''; e.style.display = 'none'; }
+  }
+
+  /* ── OTP input UX ────────────────────────────────────────── */
+  function initOTPInputs() {
+    const inputs = Array.from(document.querySelectorAll('.otp-input'));
+    inputs.forEach((inp, idx) => {
+      inp.addEventListener('input', e => {
+        const raw = e.target.value.replace(/[^0-9]/g, '');
+        if (raw.length > 1) {
+          // auto-fill from iOS OTP suggestion or paste-on-input
+          inputs.forEach((box, i) => { box.value = raw[i] || ''; box.classList.toggle('filled', !!raw[i]); });
+          (inputs[Math.min(raw.length, inputs.length) - 1]).focus();
+          return;
+        }
+        e.target.value = raw;
+        e.target.classList.toggle('filled', !!raw);
+        document.getElementById('err-otp').style.display = 'none';
+        if (raw && idx < inputs.length - 1) inputs[idx + 1].focus();
+      });
+      inp.addEventListener('keydown', e => {
+        if (e.key === 'Backspace') {
+          if (!inp.value && idx > 0) { inputs[idx - 1].value = ''; inputs[idx - 1].classList.remove('filled'); inputs[idx - 1].focus(); }
+        } else if (e.key === 'ArrowLeft'  && idx < inputs.length - 1) { inputs[idx + 1].focus(); e.preventDefault(); }
+        else if (e.key === 'ArrowRight' && idx > 0)               { inputs[idx - 1].focus(); e.preventDefault(); }
+      });
+      inp.addEventListener('paste', e => {
+        e.preventDefault();
+        const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '');
+        inputs.forEach((box, i) => { box.value = pasted[i] || ''; box.classList.toggle('filled', !!pasted[i]); });
+        (inputs[Math.min(pasted.length, inputs.length) - 1])?.focus();
+      });
+      inp.addEventListener('focus', () => inp.select());
+    });
+  }
+
+  /* ── Step 4: Success ──────────────────────────────────────── */
+  function initStep4() {
+    document.getElementById('s4-owner').textContent = reg.ownerName;
+    document.getElementById('s4-shop').textContent  = reg.shopName;
+    document.getElementById('starter-content').style.display = reg.plan === 'starter' ? '' : 'none';
+    document.getElementById('paid-content').style.display    = reg.plan !== 'starter' ? '' : 'none';
+    // Re-trigger checkmark animation
+    ['checkmark-circle', 'checkmark-check'].forEach(cls => {
+      const el = document.querySelector('.' + cls);
+      if (el) { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; }
+    });
+  }
+
+  /* ── Stepper ──────────────────────────────────────────────── */
+  function changeBarberCount(delta) {
+    const inp = document.getElementById('barber-count');
+    inp.value = Math.min(20, Math.max(1, (parseInt(inp.value) || 1) + delta));
+  }
+
+  /* ── Share ────────────────────────────────────────────────── */
+  function handleShare() {
+    const msg = encodeURIComponent('أنا سجّلت صالوني في كرسي — نظام حجز ذكي عبر واتساب. جرّبه مجاناً: https://kursi.now/register');
+    window.open('whatsapp://send?text=' + msg, '_blank');
+  }
+
+  /* ── Checkbox styling ─────────────────────────────────────── */
+  function initCheckboxes() {
+    document.querySelectorAll('.cb-item input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', function() {
+        this.closest('.cb-item').classList.toggle('checked', this.checked);
+      });
+    });
+  }
+
+  /* ── Init ─────────────────────────────────────────────────── */
+  function initRegisterPage() {
+    updateProgress(1);
+    updateStickyBar();
+    initOTPInputs();
+    initCheckboxes();
+
+    // Main sticky button
+    document.getElementById('main-btn').addEventListener('click', () => {
+      if (reg.step === 1) handleNext1();
+      else if (reg.step === 3) handleVerify();
+    });
+
+    // Back buttons
+    document.getElementById('back-2').addEventListener('click', e => { e.preventDefault(); goToStep(1, 'back'); });
+    document.getElementById('back-3').addEventListener('click', e => { e.preventDefault(); goToStep(2, 'back'); });
+
+    // Stepper
+    document.getElementById('barber-minus').addEventListener('click', () => changeBarberCount(-1));
+    document.getElementById('barber-plus').addEventListener('click',  () => changeBarberCount(1));
+
+    // Resend OTP
+    document.getElementById('resend-btn').addEventListener('click', handleResend);
+
+    // Upgrade & share
+    document.getElementById('upgrade-btn').addEventListener('click', () => {
+      window.open('https://wa.me/962795070844?text=' + encodeURIComponent('أريد الترقية إلى Pro'), '_blank');
+    });
+    document.getElementById('share-btn').addEventListener('click', handleShare);
+  }
+
+  // Run immediately (script is at bottom of body — DOM is ready)
+  initRegisterPage();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

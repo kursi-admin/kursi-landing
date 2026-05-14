@@ -1,26 +1,60 @@
 /* Kursi — shared JS */
 
 // ── Language Switcher ─────────────────────────────────────────────
-let currentLang = 'ar';
 
-function setLang(lang) {
-  currentLang = lang;
-  const html = document.documentElement;
-  html.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
-  html.setAttribute('lang', lang);
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = (el.dataset.lang === lang) ? '' : 'none';
-  });
-  const btn = document.getElementById('lang-toggle');
-  if (btn) btn.textContent = lang === 'en' ? 'عربي' : 'EN';
+function getLanguage() {
+  return new URLSearchParams(window.location.search).get('lang') || 'ar';
 }
 
-// Default: Arabic — hide all EN elements immediately
-document.querySelectorAll('[data-lang="en"]').forEach(el => { el.style.display = 'none'; });
+function applyLanguage(lang) {
+  var h = document.documentElement;
+  h.lang = lang;
+  h.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+  h.setAttribute('data-lang-ready', lang);
+  document.querySelectorAll('[data-lang="ar"]').forEach(function(el) {
+    el.style.display = lang === 'ar' ? '' : 'none';
+  });
+  document.querySelectorAll('[data-lang="en"]').forEach(function(el) {
+    el.style.display = lang === 'en' ? '' : 'none';
+  });
+  var btn = document.getElementById('lang-toggle');
+  if (btn) btn.textContent = lang === 'ar' ? 'EN' : 'عربي';
+}
 
-const langToggle = document.getElementById('lang-toggle');
+function switchLanguage() {
+  var newLang = getLanguage() === 'ar' ? 'en' : 'ar';
+  var url = new URL(window.location.href);
+  url.searchParams.set('lang', newLang);
+  history.replaceState(null, '', url);
+  applyLanguage(newLang);
+  updateAllLinks(newLang);
+}
+
+function updateAllLinks(lang) {
+  document.querySelectorAll('a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href &&
+        !href.startsWith('http') &&
+        !href.startsWith('mailto') &&
+        !href.startsWith('tel') &&
+        !href.startsWith('#') &&
+        !href.startsWith('whatsapp')) {
+      try {
+        var url = new URL(href, window.location.origin);
+        url.searchParams.set('lang', lang);
+        a.setAttribute('href', url.pathname + url.search);
+      } catch(_) {}
+    }
+  });
+}
+
+// Apply language on every page load
+applyLanguage(getLanguage());
+updateAllLinks(getLanguage());
+
+var langToggle = document.getElementById('lang-toggle');
 if (langToggle) {
-  langToggle.addEventListener('click', () => setLang(currentLang === 'ar' ? 'en' : 'ar'));
+  langToggle.addEventListener('click', switchLanguage);
 }
 
 // ── Sticky Header Shadow ──────────────────────────────────────────
@@ -61,7 +95,9 @@ if (hamburger && nav) {
 (function markActive() {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.getAttribute('href') === page) link.classList.add('active');
+    // Compare against the base href without query params
+    const linkPage = (link.getAttribute('href') || '').split('?')[0];
+    if (linkPage === page) link.classList.add('active');
   });
 })();
 

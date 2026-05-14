@@ -25,6 +25,10 @@
   --transition:   all 0.3s ease;
 }
 
+/* === LANGUAGE FLASH PREVENTION (set before page paints via data-lang-ready on <html>) === */
+[data-lang-ready="en"] [data-lang="ar"] { display: none !important; }
+[data-lang-ready="ar"] [data-lang="en"] { display: none !important; }
+
 /* === RESET === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -935,6 +939,43 @@ p  { font-size: 1.05rem; }
 }
 .back-to-top.visible { opacity: 1; pointer-events: auto; }
 .back-to-top:hover   { transform: translateY(-3px); background: var(--accent-dark); }
+
+/* ============================================
+   NAVBAR REGISTER CTA
+   ============================================ */
+.btn-nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: var(--transition);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.btn-nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+/* In hamburger menu (mobile) — shown as a styled nav item */
+.nav-register-btn {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-radius: var(--radius-btn) !important;
+  text-align: center;
+  margin-top: 0.5rem !important;
+  font-weight: 700 !important;
+}
+.nav-register-btn:hover {
+  background: var(--accent-dark) !important;
+  color: #fff !important;
+}
+
+/* Hide header CTA on mobile — it's in the hamburger instead */
+@media (max-width: 768px) {
+  .btn-nav-cta { display: none; }
+}
 
 /* ============================================
    RESPONSIVE — TABLET (≤992px)
