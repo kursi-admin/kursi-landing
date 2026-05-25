@@ -920,7 +920,7 @@ p  { font-size: 1.05rem; }
 .back-to-top {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  inset-inline-end: 2rem;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -975,6 +975,10 @@ p  { font-size: 1.05rem; }
 /* Hide header CTA on mobile — it's in the hamburger instead */
 @media (max-width: 768px) {
   .btn-nav-cta { display: none; }
+}
+/* Hide Register nav item on desktop — btn-nav-cta handles it there */
+@media (min-width: 769px) {
+  .nav-register-btn { display: none !important; }
 }
 
 /* ============================================
@@ -1062,7 +1066,7 @@ p  { font-size: 1.05rem; }
   h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
   h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
 
-  .back-to-top { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; font-size: 1rem; }
+  .back-to-top { bottom: 1.25rem; inset-inline-end: 1.25rem; width: 40px; height: 40px; font-size: 1rem; }
 }
 
 /* ============================================
