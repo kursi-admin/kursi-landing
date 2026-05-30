@@ -27,7 +27,7 @@
       border: 2.5px solid var(--border); background: #fff;
       transition: all 0.3s;
     }
-    .prog-step.active .prog-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px rgba(127,119,221,0.18); }
+    .prog-step.active .prog-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px rgba(47,163,126,0.18); }
     .prog-step.done   .prog-dot { background: var(--accent); border-color: var(--accent); }
     .prog-line { flex: 1; height: 2px; background: var(--border); min-width: 52px; margin-top: 7px; transition: background 0.3s; }
     .prog-line.done { background: var(--accent); }
@@ -64,7 +64,7 @@
     .reg-field input:focus,
     .reg-field select:focus {
       outline: none; border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(127,119,221,0.14);
+      box-shadow: 0 0 0 3px rgba(47,163,126,0.14);
     }
     .reg-field input.err,
     .reg-field select.err { border-color: #dc3545; }
@@ -95,13 +95,13 @@
     /* ── Plan cards (step 2) ────────────────────────────────────── */
     .plan-stack { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
     .plan-card { background: #fff; border: 2px solid var(--border); border-radius: 14px; padding: 1.35rem 1.25rem; position: relative; transition: box-shadow 0.2s; }
-    .plan-card.featured { border-color: var(--accent); box-shadow: 0 4px 20px rgba(127,119,221,0.2); }
+    .plan-card.featured { border-color: var(--accent); box-shadow: 0 4px 20px rgba(47,163,126,0.2); }
     .plan-badge {
       position: absolute; top: -13px;
       right: 50%; transform: translateX(50%);
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: #fff; padding: 0.25rem 1rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
-      white-space: nowrap; box-shadow: 0 2px 8px rgba(127,119,221,0.35);
+      white-space: nowrap; box-shadow: 0 2px 8px rgba(47,163,126,0.35);
     }
     [dir="ltr"] .plan-badge { right: auto; left: 50%; transform: translateX(-50%); }
     .plan-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.75rem; }
@@ -138,7 +138,7 @@
       color: var(--text); transition: border-color 0.2s;
       -webkit-appearance: none; appearance: none;
     }
-    .otp-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(127,119,221,0.15); outline: none; }
+    .otp-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(47,163,126,0.15); outline: none; }
     .otp-input.filled { border-color: var(--accent); }
     @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-7px)} 80%{transform:translateX(7px)} }
     .otp-boxes.shake { animation: shake 0.48s ease; }
@@ -200,7 +200,7 @@
       <div class="header-inner">
         <a href="index.html" class="logo">
           <span class="logo-icon">✂️</span>
-          <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
+          <span class="logo-text"><span data-lang="ar">كرس<span class="logo-dot">ي</span></span><span data-lang="en">Kurs<span class="logo-dot">i</span></span></span>
         </a>
         <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
           <ul class="nav-list">
@@ -516,7 +516,7 @@
         <div class="footer-brand">
           <a href="index.html" class="logo">
             <span class="logo-icon">✂️</span>
-            <span class="logo-text"><span data-lang="ar">كرسي</span><span data-lang="en">Kursi</span></span>
+            <span class="logo-text"><span data-lang="ar">كرس<span class="logo-dot">ي</span></span><span data-lang="en">Kurs<span class="logo-dot">i</span></span></span>
           </a>
           <p><span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span><span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span></p>
         </div>
