@@ -93,34 +93,73 @@
             </div>
           </div>
 
-          <!-- Phone Mockup -->
+          <!-- WhatsApp Flow Phone Mockup -->
           <div class="phone-mockup" aria-hidden="true">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="chat-header">
-                <div class="chat-avatar">✂️</div>
-                <div>
-                  <div class="chat-name">
-                    <span data-lang="ar">صالون الفن</span><span data-lang="en">Art Salon</span>
+            <div class="wa-phone">
+              <div class="wa-screen">
+
+                <!-- status bar -->
+                <div class="wa-statusbar">
+                  <span>9:41</span>
+                  <span class="wa-sb-right">
+                    <svg viewBox="0 0 24 24"><path d="M2 16l4-1 4 2 4-5 4 1 4-4v11H2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 1 11c2 4 6 7 11 7s9-3 11-7c-2-4-6-7-11-7zm0 11a4 4 0 110-8 4 4 0 010 8z"/></svg>
+                    <span class="wa-bat"><span class="wa-cell"></span><span class="wa-nub"></span></span>
+                  </span>
+                </div>
+
+                <!-- chat header -->
+                <div class="wa-chathead">
+                  <span class="wa-back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></span>
+                  <span class="wa-av"><span class="wa-k">ك</span><span class="wa-spark"></span></span>
+                  <span class="wa-who"><b>صالون السلطان</b><small>بوت كرسي · يردّ خلال ثوانٍ</small></span>
+                  <span class="wa-acts"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></span>
+                </div>
+
+                <!-- chat body -->
+                <div class="wa-chat">
+                  <div class="wa-daychip">اليوم</div>
+                  <div class="wa-enote">🔒 الرسائل مشفّرة. كرسي يستقبل الحجوزات تلقائياً.</div>
+
+                  <!-- customer -->
+                  <div class="wa-row wa-out"><div class="wa-bubble">مرحبا 👋 بدّي احجز موعد قص<span class="wa-meta">5:58 م<span class="wa-tick"><svg viewBox="0 0 16 11"><path d="M1 6l3 3 6-7M6 9l1 .5 6-7"/></svg></span></span></div></div>
+
+                  <!-- bot greeting + service buttons -->
+                  <div class="wa-row wa-in"><div class="wa-bubble">أهلين فيك بصالون السلطان 💈<br>أنا <b>كرسي</b>، مساعد الحجز. شو الخدمة؟<span class="wa-meta">5:58 م</span></div></div>
+                  <div class="wa-qbtns">
+                    <div class="wa-qrow"><div class="wa-qbtn">قص شعر</div><div class="wa-qbtn">قص + لحية</div></div>
+                    <div class="wa-qrow"><div class="wa-qbtn">حلاقة كاملة</div><div class="wa-qbtn">تحديد ذقن</div></div>
                   </div>
-                  <div class="chat-status">
-                    <span data-lang="ar">متاح الآن</span><span data-lang="en">Online</span>
+
+                  <!-- customer choice -->
+                  <div class="wa-row wa-out"><div class="wa-bubble">قص + لحية<span class="wa-meta">5:59 م<span class="wa-tick"><svg viewBox="0 0 16 11"><path d="M1 6l3 3 6-7M6 9l1 .5 6-7"/></svg></span></span></div></div>
+
+                  <!-- bot day -->
+                  <div class="wa-row wa-in"><div class="wa-bubble">تمام 👌 المدة ٤٥ دقيقة، السعر ٨ دنانير.<br>أي يوم بناسبك؟<span class="wa-meta">5:59 م</span></div></div>
+                  <div class="wa-qbtns">
+                    <div class="wa-qrow"><div class="wa-qbtn">اليوم</div><div class="wa-qbtn">بكرا</div><div class="wa-qbtn">الجمعة</div></div>
+                  </div>
+
+                  <!-- customer day -->
+                  <div class="wa-row wa-out"><div class="wa-bubble">بكرا<span class="wa-meta">5:59 م<span class="wa-tick"><svg viewBox="0 0 16 11"><path d="M1 6l3 3 6-7M6 9l1 .5 6-7"/></svg></span></span></div></div>
+
+                  <!-- bot times -->
+                  <div class="wa-row wa-in"><div class="wa-bubble">الأوقات الفاضية بكرا 🗓️<span class="wa-meta">6:00 م</span></div></div>
+                  <div class="wa-qbtns">
+                    <div class="wa-qrow"><div class="wa-qbtn">٤:٠٠ م</div><div class="wa-qbtn">٥:٣٠ م</div><div class="wa-qbtn">٧:١٥ م</div></div>
                   </div>
                 </div>
-              </div>
-              <div class="chat-body">
-                <div class="chat-msg client">
-                  <span data-lang="ar">مرحبا</span><span data-lang="en">Hello</span>
+
+                <!-- input bar -->
+                <div class="wa-inputbar">
+                  <div class="wa-field">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+                    <span class="wa-ph">اكتب رسالة</span>
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                  </div>
+                  <div class="wa-send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-7-8-3z"/></svg></div>
                 </div>
-                <div class="chat-msg bot">
-                  <span data-lang="ar">أهلاً! 👋<br>اختر الخدمة:<br>1️⃣ فيد<br>2️⃣ قصة كلاسيك</span>
-                  <span data-lang="en">Hi! 👋<br>Choose service:<br>1️⃣ Fade<br>2️⃣ Classic Cut</span>
-                </div>
-                <div class="chat-msg client">1</div>
-                <div class="chat-msg bot">
-                  <span data-lang="ar">✅ تم الحجز!<br>اليوم ٣:٠٠ م</span>
-                  <span data-lang="en">✅ Booking confirmed!<br>Today 3:00 PM</span>
-                </div>
+
               </div>
             </div>
           </div>

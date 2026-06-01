@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حذف البيانات الشخصية — كرسي</title>
+  <meta name="description" content="طلب حذف بياناتك الشخصية من منصة كرسي.">
+  <meta property="og:title" content="حذف البيانات الشخصية — كرسي">
+  <meta property="og:url" content="https://kursi.now/data-deletion">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_JO">
+  <link rel="canonical" href="https://kursi.now/data-deletion">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>(function(){var l=new URLSearchParams(window.location.search).get('lang')||'ar';var h=document.documentElement;h.lang=l;h.dir=l==='ar'?'rtl':'ltr';h.setAttribute('data-lang-ready',l);}());</script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .deletion-cards {
+      display: grid;
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .deletion-card {
+      background: #fff;
+      border: 1.5px solid var(--bg-2);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+    }
+    .deletion-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+    .deletion-card-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .deletion-card-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 0;
+    }
+    .deletion-card p {
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .deletion-card p:last-of-type { margin-bottom: 1rem; }
+    .deletion-card .msg-hint {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.9rem;
+      direction: rtl;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cta);
+      color: #fff;
+      border-radius: 50px;
+      padding: 0.65rem 1.4rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.25rem;
+    }
+    .btn-whatsapp:hover { background: var(--cta-dark); transform: translateY(-1px); }
+    .btn-whatsapp svg { flex-shrink: 0; }
+    .deletion-note {
+      background: #fff8e1;
+      border-right: 3px solid #f0b429;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 2rem 0 0;
+    }
+    .deletion-note p {
+      margin: 0;
+      color: #7a5c00;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .deletion-note p + p { margin-top: 0.4rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">✂️</span>
+          <span class="logo-text">
+            <span data-lang="ar">كرس<span class="logo-dot">ي</span></span><span data-lang="en">Kurs<span class="logo-dot">i</span></span>
+          </span>
+        </a>
+        <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html" class="nav-link"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="about.html" class="nav-link"><span data-lang="ar">من نحن</span><span data-lang="en">About</span></a></li>
+            <li><a href="contact.html" class="nav-link"><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact</span></a></li>
+            <li><a href="https://app.kursi.now" class="nav-link"><span data-lang="ar">لوحة التحكم</span><span data-lang="en">Dashboard</span></a></li>
+            <li><a href="register.html" class="nav-link nav-register-btn"><span data-lang="ar">سجّل صالونك</span><span data-lang="en">Register</span></a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="register.html" class="btn-nav-cta"><span data-lang="ar">سجّل صالونك</span><span data-lang="en">Register</span></a>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+          <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="legal-hero">
+      <div class="container text-center">
+        <h1>حذف البيانات الشخصية</h1>
+        <p class="effective-date">Data Deletion Instructions</p>
+      </div>
+    </section>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="legal-content" style="max-width: 680px;">
+
+      <div class="legal-section">
+        <p>نحن في كرسي نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. إذا كنت ترغب في حذف بياناتك من منصتنا، يمكنك طلب ذلك بإحدى الطريقتين التاليتين.</p>
+      </div>
+
+      <!-- Methods -->
+      <div class="deletion-cards">
+
+        <!-- Method 1: WhatsApp -->
+        <div class="deletion-card">
+          <div class="deletion-card-header">
+            <div class="deletion-card-num">١</div>
+            <h2 class="deletion-card-title">عبر واتساب</h2>
+          </div>
+          <p>أرسل رسالة واتساب إلى رقم الدعم الخاص بنا.</p>
+          <p>اكتب في الرسالة: <span class="msg-hint">حذف بياناتي</span></p>
+          <a href="https://wa.me/962795070844?text=%D8%AD%D8%B0%D9%81%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%D9%8A"
+             class="btn-whatsapp"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="ارسال طلب حذف عبر واتساب">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            تواصل عبر واتساب
+          </a>
+        </div>
+
+        <!-- Method 2: Email -->
+        <div class="deletion-card">
+          <div class="deletion-card-header">
+            <div class="deletion-card-num">٢</div>
+            <h2 class="deletion-card-title">عبر البريد الإلكتروني</h2>
+          </div>
+          <p>أرسل طلبك إلى: <a href="mailto:admin@kursi.now" style="color: var(--accent-dark); font-weight: 600;">admin@kursi.now</a></p>
+          <p>اذكر في الرسالة رقم واتساب المرتبط بحسابك.</p>
+        </div>
+
+      </div>
+
+      <!-- What gets deleted -->
+      <div class="legal-section">
+        <h2>البيانات التي سيتم حذفها</h2>
+        <ul>
+          <li>بيانات الصالون (الاسم، رقم الواتساب، الإعدادات)</li>
+          <li>سجل الحجوزات</li>
+          <li>بيانات الحلاقين والخدمات</li>
+          <li>سجل المحادثات مع البوت</li>
+        </ul>
+      </div>
+
+      <!-- Warning note -->
+      <div class="deletion-note">
+        <p>سيتم معالجة طلبك خلال <strong>30 يوماً</strong> من تاريخ استلامه.</p>
+        <p>بعد الحذف، لن تتمكن من الوصول إلى حسابك أو استرداد بياناتك.</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✂️</span>
+            <span class="logo-text"><span data-lang="ar">كرس<span class="logo-dot">ي</span></span><span data-lang="en">Kurs<span class="logo-dot">i</span></span></span>
+          </a>
+          <p><span data-lang="ar">نظام حجز ذكي لصالونات الحلاقة في الأردن والعالم العربي.</span><span data-lang="en">Smart booking system for barbershops in Jordan and the Arab world.</span></p>
+        </div>
+        <div>
+          <h4><span data-lang="ar">روابط سريعة</span><span data-lang="en">Quick Links</span></h4>
+          <ul>
+            <li><a href="index.html"><span data-lang="ar">الرئيسية</span><span data-lang="en">Home</span></a></li>
+            <li><a href="pricing.html"><span data-lang="ar">الأسعار</span><span data-lang="en">Pricing</span></a></li>
+            <li><a href="https://app.kursi.now"><span data-lang="ar">لوحة التحكم</span><span data-lang="en">Dashboard</span></a></li>
+            <li><a href="privacy.html"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+            <li><a href="terms.html"><span data-lang="ar">الشروط والأحكام</span><span data-lang="en">Terms of Service</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span data-lang="ar">تواصل معنا</span><span data-lang="en">Contact Us</span></h4>
+          <ul>
+            <li><a href="mailto:admin@kursi.now">admin@kursi.now</a></li>
+            <li><a href="mailto:support@kursi.now">support@kursi.now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span data-lang="ar">تابعنا</span><span data-lang="en">Follow Us</span></h4>
+          <div class="social-links">
+            <a href="#" class="social-link">📸 Instagram</a>
+            <a href="https://wa.me/962795070844" class="social-link social-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><span data-lang="ar">© 2026 كرسي — جميع الحقوق محفوظة</span><span data-lang="en">© 2026 Kursi — All rights reserved</span></p>
+        <p><span data-lang="ar">صنع بـ ❤️ في عمّان، الأردن</span><span data-lang="en">Made with ❤️ in Amman, Jordan</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
